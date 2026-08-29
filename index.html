@@ -18,13 +18,14 @@
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("sw.js").catch(() => {});
+        navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});
       });
     }
   </script>
   <header class="hero" role="banner">
     <div class="container hero-inner">
       <div class="hero-top">
+        <a class="page-link" href="ngos.html">Food, Shelter & More →</a>
         <div class="brand" aria-label="Beacon — Crisis helpline finder">
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -66,6 +67,13 @@
   <main role="main">
     <div class="container">
       <section id="country-list" class="country-list" aria-live="polite" aria-label="Helplines by country"></section>
+    </div>
+
+    <div class="container ngo-home" id="ngos-home" aria-label="Food, shelter, medical and education">
+      <h2 class="section-heading display-2 text-ink">Food, Shelter, Medical & Education</h2>
+      <p class="section-sub text-muted">Verified global NGOs providing food assistance, emergency shelter, medical care, and education support.</p>
+      <div id="ngo-category-chips" class="category-filter" aria-label="Filter NGOs by category" role="group"></div>
+      <section id="ngo-list" class="ngo-list" aria-live="polite" aria-label="NGOs by category"></section>
     </div>
   </main>
 

@@ -3,16 +3,16 @@
  * Caches static assets + helpline data for offline access
  */
 
-const CACHE_NAME = "beacon-v1";
+const CACHE_NAME = "beacon-v2";
 const STATIC_ASSETS = [
-  "/",
-  "/index.html",
-  "/ngos.html",
-  "/styles.css",
-  "/app.js",
-  "/data/helplines.json",
-  "/data/ngos.json",
-  "/manifest.json",
+  "./",
+  "./index.html",
+  "./ngos.html",
+  "./styles.css",
+  "./app.js",
+  "./data/helplines.json",
+  "./data/ngos.json",
+  "./manifest.json",
 ];
 
 // Install: cache static assets
@@ -49,7 +49,7 @@ self.addEventListener("fetch", (event) => {
   // Skip cross-origin requests
   if (url.origin !== location.origin) return;
 
-  const isDataRequest = url.pathname.startsWith("/data/");
+  const isDataRequest = url.pathname.includes("/data/");
 
   if (isDataRequest) {
     // Stale-while-revalidate for helpline data

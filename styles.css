@@ -471,7 +471,9 @@ body {
    ============================================================ */
 .language-filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
 
-.lang-chip {
+.lang-chip,
+.cat-chip,
+.ngo-chip {
   display: inline-flex;
   align-items: center;
   gap: var(--space-1);
@@ -488,15 +490,21 @@ body {
   white-space: nowrap;
 }
 
-.lang-chip:hover { border-color: var(--color-brand); color: var(--color-brand); }
+.lang-chip:hover,
+.cat-chip:hover,
+.ngo-chip:hover { border-color: var(--color-brand); color: var(--color-brand); }
 
-.lang-chip.active {
+.lang-chip.active,
+.cat-chip.active,
+.ngo-chip.active {
   background: var(--color-brand);
   border-color: var(--color-brand);
   color: white;
 }
 
-.lang-chip-count {
+.lang-chip-count,
+.cat-chip-count,
+.ngo-chip-count {
   padding: 0 2px;
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -504,7 +512,38 @@ body {
   opacity: 0.7;
 }
 
-.lang-chip.active .lang-chip-count { background: rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 0 4px; }
+.lang-chip.active .lang-chip-count,
+.cat-chip.active .cat-chip-count,
+.ngo-chip.active .ngo-chip-count { background: rgba(255,255,255,0.2); border-radius: var(--radius-full); padding: 0 4px; }
+
+/* ============================================================
+   CATEGORY CHIPS (shared by helplines + NGOs)
+   ============================================================ */
+.category-filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+
+/* ============================================================
+   PAGE LINK + HOME NGO SECTION
+   ============================================================ */
+.page-link {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-ink-muted);
+  background: var(--color-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-1) var(--space-3);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.page-link:hover { border-color: var(--color-brand); color: var(--color-brand); }
+
+.ngo-home { margin-top: var(--space-16); border-top: 1px solid var(--color-border); padding-top: var(--space-12); }
+
+.section-heading { margin: 0 0 var(--space-2); }
+.section-sub { margin: 0 0 var(--space-4); }
 
 /* ============================================================
    MAIN CONTENT

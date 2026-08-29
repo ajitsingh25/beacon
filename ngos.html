@@ -18,13 +18,14 @@
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("sw.js").catch(() => {});
+        navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).catch(() => {});
       });
     }
   </script>
   <header class="hero" role="banner">
     <div class="container hero-inner">
       <div class="hero-top">
+        <a class="page-link" href="index.html">Crisis Helplines →</a>
         <div class="brand" aria-label="Beacon — NGOs for basic needs">
           <div class="brand-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -54,7 +55,7 @@
 
       <div id="language-chips" class="language-filter" aria-label="Filter by language" role="group"></div>
 
-      <div id="category-chips" class="category-filter" aria-label="Filter by category" role="group"></div>
+      <div id="ngo-category-chips" class="category-filter" aria-label="Filter NGOs by category" role="group"></div>
 
       <div id="pinned-banner" class="pinned-banner hidden" aria-live="polite" role="status">
         <span class="pinned-banner-text" id="pinned-banner-text"></span>

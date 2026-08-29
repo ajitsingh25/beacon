@@ -435,6 +435,8 @@ function countrySection(entries) {
 
 function render(list) {
   const container = document.getElementById("country-list");
+  if (!container) return;
+
   container.innerHTML = "";
 
   if (!list.length) {
@@ -609,7 +611,7 @@ function renderCategoryChips() {
 }
 
 function renderNGOChips() {
-  const container = document.getElementById("category-chips");
+  const container = document.getElementById("ngo-category-chips");
   if (!container) return;
 
   const categoryCounts = {};
@@ -973,10 +975,12 @@ async function initApp() {
     initPrintButton();
     renderCategoryChips();
     renderNGOChips();
+    renderNGOs();
     loadStatus();
     updateHashFromPinned();
   } catch (err) {
     const container = document.getElementById("country-list");
+    if (!container) return;
     container.innerHTML = `
       <div class="empty-state" style="grid-column:1/-1;text-align:center;padding:var(--space-16) var(--space-6);">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:64px;height:64px;margin-bottom:var(--space-4);opacity:0.5;margin-left:auto;margin-right:auto;" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
