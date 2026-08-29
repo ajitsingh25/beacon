@@ -5,11 +5,27 @@ const statusUrl = "data/status.json";
 
 let all = [];
 
+// ITU-T E.164 country calling codes for countries in our dataset
+const COUNTRY_CALLING_CODES = {
+  US: "1", CA: "1", GB: "44", AU: "61", NZ: "64", IN: "91",
+  DE: "49", FR: "33", ES: "34", IT: "39", NL: "31", JP: "81",
+  KR: "82", SG: "65", IL: "972", ZA: "27", NG: "234", KE: "254",
+  BR: "55", MX: "52",
+};
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
   return node;
+}
+
+function toInternational(iso, localPhone) {
+  const cc = COUNTRY_CALLING_CODES[iso];
+  if (!cc) return null;
+  let national = localPhone.replace(/[^\d]/g, "");
+  if (national.startsWith("0")) national = national.slice(1);
+  return "+" + cc + " " + national;
 }
 
 function telLink(p) {
@@ -26,9 +42,22 @@ function card(entry) {
 
   c.appendChild(el("h3", "name", entry.name));
 
-  const phone = el("a", "phone", entry.phone);
-  phone.href = telLink(entry.phone);
-  c.appendChild(phone);
+  const phoneWrap = el("div", "phone-wrap");
+
+  const localPhone = el("a", "phone local", entry.phone);
+  localPhone.href = telLink(entry.phone);
+  localPhone.setAttribute("aria-label", "Local: " + entry.phone);
+  phoneWrap.appendChild(localPhone);
+
+  const intl = toInternational(entry.iso, entry.phone);
+  if (intl) {
+    const intlPhone = el("a", "phone intl", intl);
+    intlPhone.href = "tel:" + intl.replace(/\s+/g, "");
+    intlPhone.setAttribute("aria-label", "International: " + intl);
+    phoneWrap.appendChild(intlPhone);
+  }
+
+  c.appendChild(phoneWrap);
 
   const meta = el("p", "meta");
   const bits = [entry.hours];
