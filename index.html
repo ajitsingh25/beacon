@@ -7,9 +7,9 @@
   <meta name="description" content="Verified crisis and suicide-prevention helplines by country. Every number links to its official source so you can trust what you see.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="styles.css">
   <link rel="manifest" href="manifest.json">
   <link rel="canonical" href="https://ajitsingh25.github.io/beacon/">
@@ -22,26 +22,40 @@
       });
     }
   </script>
-  <header class="hero" role="banner">
-    <div class="container hero-inner">
-      <div class="hero-top">
-        <a class="page-link" href="ngos.html">Food, Shelter & More →</a>
-        <div class="brand" aria-label="Beacon — Crisis helpline finder">
-          <div class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-            </svg>
-          </div>
-          <h1 class="brand-name display-1 text-ink">Beacon</h1>
-        </div>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Beacon home — Crisis helpline finder">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </span>
+        <span class="brand-name">Beacon</span>
+        <span class="brand-tagline">Verified crisis helplines & NGOs</span>
+      </a>
+      <nav class="site-nav" aria-label="Site sections">
+        <a class="nav-link active" aria-current="page" href="index.html">Helplines</a>
+        <a class="nav-link" href="ngos.html">Food & Shelter</a>
+      </nav>
+      <div class="header-actions">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch between light and dark theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </button>
         <button id="quick-exit" class="quick-exit" type="button" aria-label="Quick exit to neutral site">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
           Exit
         </button>
       </div>
-      <h2 class="hero-headline display-2 text-ink">Find a helpline now</h2>
-      <p class="hero-subtext text-muted">Verified crisis and suicide-prevention numbers by country. Every entry links to its official source.</p>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container hero-inner">
+      <p class="hero-eyebrow">Free & anonymous</p>
+      <h1 id="hero-title" class="hero-headline display-2 text-ink">Find a helpline now</h1>
+      <p class="hero-subtext text-muted">Verified crisis and suicide-prevention numbers by country. Every entry links to the official source it was checked against.</p>
 
       <form id="search-form" class="search-form" role="search" autocomplete="off" onsubmit="return false;">
         <div class="search-wrapper">
@@ -53,6 +67,12 @@
         </div>
       </form>
 
+      <div class="trust-strip" aria-label="Trust signals">
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Verified against official sources</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg> Free, anonymous, 24/7 where noted</span>
+        <span class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Reviewed regularly</span>
+      </div>
+
       <div id="pinned-banner" class="pinned-banner hidden" aria-live="polite" role="status">
         <span class="pinned-banner-text" id="pinned-banner-text"></span>
         <button type="button" class="pinned-dismiss" id="pinned-dismiss" aria-label="Show all countries">Show all countries</button>
@@ -62,7 +82,7 @@
 
       <div id="category-chips" class="category-filter" aria-label="Filter by category" role="group"></div>
     </div>
-  </header>
+  </section>
 
   <main role="main">
     <div class="container">

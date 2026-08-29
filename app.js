@@ -18,7 +18,7 @@ const COUNTRY_CALLING_CODES = {
   US: "1", CA: "1", GB: "44", AU: "61", NZ: "64", IN: "91",
   DE: "49", FR: "33", ES: "34", IT: "39", NL: "31", JP: "81",
   KR: "82", SG: "65", IL: "972", ZA: "27", NG: "234", KE: "254",
-  BR: "55", MX: "52",
+  BR: "55", MX: "52", CZ: "420",
 };
 
 const CATEGORIES = ["suicide", "domestic-violence", "child-protection", "sexual-assault", "substance-use", "human-trafficking", "lgbtq", "veterans"];
@@ -149,16 +149,10 @@ function copyToClipboard(text, btn) {
 
 function createPhoneRow(entry, phone, label, isIntl = false, isEmergency = false) {
   const row = el("div", "phone-row" + (isEmergency ? " emergency" : ""));
-  row.style.display = "flex";
-  row.style.alignItems = "center";
-  row.style.gap = "var(--space-3)";
-  row.style.flexWrap = "wrap";
-
-  const link = el("a", "phone-link" + (isIntl ? " intl" : "") + (isEmergency ? " emergency" : ""), phone);
+  const linkClass = isEmergency ? "phone-link emergency" : isIntl ? "phone-link intl" : "phone-link local";
+  const link = el("a", linkClass, phone);
   link.href = telLink(phone);
   link.setAttribute("aria-label", label + ": " + phone);
-  if (isIntl) link.style.fontSize = "var(--font-size-sm)";
-  if (isEmergency) link.style.fontSize = "var(--font-size-base)";
   row.appendChild(link);
 
   const labelEl = el("span", "phone-label" + (isEmergency ? " emergency" : ""), isEmergency ? "Emergency" : (isIntl ? "Intl" : "Local"));
@@ -186,13 +180,6 @@ function createMetaItem(iconName, text) {
 
 function createAltRow(entry, alt) {
   const row = el("div", "phone-row alt");
-  row.style.display = "flex";
-  row.style.alignItems = "center";
-  row.style.gap = "var(--space-3)";
-  row.style.flexWrap = "wrap";
-  row.style.paddingTop = "var(--space-2)";
-  row.style.borderTop = "1px solid var(--color-border)";
-  row.style.marginTop = "var(--space-1)";
 
   const labelEl = el("span", "phone-label alt", "If busy, try:");
   row.appendChild(labelEl);
@@ -200,15 +187,10 @@ function createAltRow(entry, alt) {
   const link = el("a", "phone-link alt", alt.phone);
   link.href = alt.phone ? telLink(alt.phone) : "#";
   link.setAttribute("aria-label", "Fallback: " + alt.name + (alt.phone ? " " + alt.phone : ""));
-  link.style.fontSize = "var(--font-size-base)";
-  link.style.fontWeight = "var(--font-weight-medium)";
-  link.style.color = "var(--color-accent)";
   row.appendChild(link);
 
   if (alt.notes) {
     const notes = el("span", "phone-label alt", alt.notes);
-    notes.style.color = "var(--color-ink-muted)";
-    notes.style.fontSize = "var(--font-size-sm)";
     row.appendChild(notes);
   }
 
@@ -232,13 +214,6 @@ function createChatRow(entry) {
   if (!entry.chatUrl && !entry.textNumber) return null;
 
   const row = el("div", "phone-row chat-row");
-  row.style.display = "flex";
-  row.style.alignItems = "center";
-  row.style.gap = "var(--space-3)";
-  row.style.flexWrap = "wrap";
-  row.style.paddingTop = "var(--space-2)";
-  row.style.borderTop = "1px solid var(--color-border)";
-  row.style.marginTop = "var(--space-1)";
 
   if (entry.chatUrl) {
     const labelEl = el("span", "phone-label", "Chat");
@@ -249,9 +224,6 @@ function createChatRow(entry) {
     link.target = "_blank";
     link.rel = "noopener";
     link.setAttribute("aria-label", "Open web chat");
-    link.style.fontSize = "var(--font-size-base)";
-    link.style.fontWeight = "var(--font-weight-medium)";
-    link.style.color = "var(--color-brand)";
     row.appendChild(link);
 
     const copyBtn = el("button", "phone-copy", "");
@@ -273,9 +245,6 @@ function createChatRow(entry) {
     const link = el("a", "phone-link text", entry.textNumber);
     link.href = telLink(entry.textNumber);
     link.setAttribute("aria-label", "Text number: " + entry.textNumber);
-    link.style.fontSize = "var(--font-size-base)";
-    link.style.fontWeight = "var(--font-weight-semibold)";
-    link.style.color = "var(--color-accent)";
     row.appendChild(link);
 
     const copyBtn = el("button", "phone-copy", "");
@@ -298,25 +267,14 @@ function card(entry) {
 
   // Header with name and hours
   const header = el("div", "helpline-header");
-  header.style.display = "flex";
-  header.style.alignItems = "flex-start";
-  header.style.justifyContent = "space-between";
-  header.style.gap = "var(--space-3)";
-  header.style.flexWrap = "wrap";
-
-  const name = el("h3", "helpline-name display-3 text-ink", entry.name);
+  const name = el("h3", "helpline-name text-ink", entry.name);
   header.appendChild(name);
-
   const hours = el("span", "helpline-hours", entry.hours);
   header.appendChild(hours);
-
   cardEl.appendChild(header);
 
   // Phones
   const phonesWrap = el("div", "helpline-phones");
-  phonesWrap.style.display = "flex";
-  phonesWrap.style.flexDirection = "column";
-  phonesWrap.style.gap = "var(--space-2)";
 
   phonesWrap.appendChild(createPhoneRow(entry, entry.phone, "Local number", false, false));
 
@@ -345,13 +303,6 @@ function card(entry) {
   // Meta (languages)
   if (entry.languages && entry.languages.length) {
     const meta = el("div", "helpline-meta");
-    meta.style.display = "flex";
-    meta.style.flexWrap = "wrap";
-    meta.style.gap = "var(--space-3)";
-    meta.style.paddingTop = "var(--space-2)";
-    meta.style.borderTop = "1px solid var(--color-border)";
-    meta.style.marginTop = "var(--space-1)";
-
     const langItem = createMetaItem("globe", entry.languages.join(", "));
     meta.appendChild(langItem);
     cardEl.appendChild(meta);
@@ -360,34 +311,18 @@ function card(entry) {
   // Notes
   if (entry.notes) {
     const notes = el("p", "helpline-notes body-sm text-muted", entry.notes);
-    notes.style.lineHeight = "var(--line-height-relaxed)";
     cardEl.appendChild(notes);
   }
 
   // Source
   const source = el("div", "helpline-source");
-  source.style.display = "flex";
-  source.style.alignItems = "center";
-  source.style.gap = "var(--space-2)";
-  source.style.fontSize = "var(--font-size-xs)";
-  source.style.color = "var(--color-ink-subtle)";
-  source.style.paddingTop = "var(--space-2)";
-  source.style.borderTop = "1px solid var(--color-border)";
-  source.style.marginTop = "var(--space-1)";
-
-  const sourceLabel = el("span", "", "Source:");
+  const sourceLabel = el("span", "source-label", "Source:");
   source.appendChild(sourceLabel);
 
   const sourceLink = el("a", "", entry.sourceName);
   sourceLink.href = entry.sourceUrl;
   sourceLink.target = "_blank";
   sourceLink.rel = "noopener";
-  sourceLink.style.color = "var(--color-brand)";
-  sourceLink.style.textDecoration = "none";
-  sourceLink.style.fontWeight = "var(--font-weight-medium)";
-  sourceLink.style.transition = "color var(--transition-fast)";
-  sourceLink.addEventListener("mouseenter", () => sourceLink.style.color = "var(--color-brand-hover)");
-  sourceLink.addEventListener("mouseleave", () => sourceLink.style.color = "var(--color-brand)");
   source.appendChild(sourceLink);
 
   cardEl.appendChild(source);
@@ -400,20 +335,17 @@ function countrySection(entries) {
   const firstEntry = entries[0];
 
   const header = el("div", "country-header");
-  header.style.display = "flex";
-  header.style.alignItems = "baseline";
-  header.style.gap = "var(--space-3)";
-  header.style.marginBottom = "var(--space-5)";
-  header.style.flexWrap = "wrap";
-
   const name = el("h2", "country-name heading-1 text-ink", firstEntry.country);
   header.appendChild(name);
+
+  const count = el("span", "country-count", String(entries.length));
+  header.appendChild(count);
 
   const iso = el("span", "country-iso mono-sm text-brand", firstEntry.iso);
   header.appendChild(iso);
 
   if (firstEntry.iso === pinnedIso) {
-    const pin = el("span", "country-pin", "📍 Your country");
+    const pin = el("span", "country-pin", "Your country");
     header.appendChild(pin);
   }
 
@@ -421,10 +353,6 @@ function countrySection(entries) {
   section.dataset.iso = firstEntry.iso;
 
   const grid = el("div", "card-grid");
-  grid.style.display = "grid";
-  grid.style.gap = "var(--space-4)";
-  grid.style.gridTemplateColumns = "1fr";
-
   for (const entry of entries) {
     grid.appendChild(card(entry));
   }
@@ -441,14 +369,12 @@ function render(list) {
 
   if (!list.length) {
     const empty = el("div", "empty-state");
-    empty.style.gridColumn = "1 / -1";
-    empty.style.textAlign = "center";
-    empty.style.padding = "var(--space-16) var(--space-6)";
-    empty.style.color = "var(--color-ink-muted)";
     empty.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:64px;height:64px;margin-bottom:var(--space-4);opacity:0.5;margin-left:auto;margin-right:auto;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <h3 class="display-3 text-ink" style="margin:0 0 var(--space-2);">No matches found</h3>
-      <p class="body text-muted" style="max-width:28rem;margin:0 auto;">Try a different search term or clear the filters.</p>
+      <div class="empty-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>No matches found</h3>
+        <p>Try a different search term or clear the filters.</p>
+      </div>
     `;
     container.appendChild(empty);
     return;
@@ -645,63 +571,37 @@ function renderNGO(entry) {
 
   // Name and category
   const header = el("div", "ngo-header");
-  header.style.display = "flex";
-  header.style.alignItems = "flex-start";
-  header.style.justifyContent = "space-between";
-  header.style.gap = "var(--space-3)";
-  header.style.flexWrap = "wrap";
-
-  const name = el("h3", "ngo-name display-3 text-ink", entry.name);
+  const name = el("h3", "ngo-name text-ink", entry.name);
   header.appendChild(name);
-
-  const category = el("span", "ngo-category mono-sm text-brand", NGO_LABELS[entry.category]);
+  const category = el("span", "ngo-category", NGO_LABELS[entry.category]);
   header.appendChild(category);
-
   ngoCard.appendChild(header);
 
   // Contact/website
   const contactRow = el("div", "ngo-contact");
-  contactRow.style.display = "flex";
-  contactRow.style.flexDirection = "column";
-  contactRow.style.gap = "var(--space-2)";
-  contactRow.style.paddingTop = "var(--space-2)";
-  contactRow.style.borderTop = "1px solid var(--color-border)";
-  contactRow.style.marginTop = "var(--space-1)";
-
   if (entry.contact) {
     const contactLink = el("a", "ngo-contact-link", "Official Website");
     contactLink.href = entry.contact;
     contactLink.target = "_blank";
     contactLink.rel = "noopener";
-    contactLink.style.color = "var(--color-brand)";
-    contactLink.style.fontWeight = "var(--font-weight-medium)";
-    contactLink.style.textDecoration = "none";
     contactRow.appendChild(contactLink);
   }
-
   ngoCard.appendChild(contactRow);
 
   // Focus/reach
   if (entry.reach) {
-    const reach = el("p", "ngo-reach body-sm text-muted", entry.reach);
+    const reach = el("p", "ngo-reach text-muted", entry.reach);
     ngoCard.appendChild(reach);
   }
 
   // Focus
   if (entry.focus) {
-    const focus = el("p", "ngo-focus body-sm text-muted", entry.focus);
+    const focus = el("p", "ngo-focus text-muted", entry.focus);
     ngoCard.appendChild(focus);
   }
 
   // Verified badge
-  const badge = el("span", "ngo-verified", "Verified");
-  badge.style.color = "var(--color-brand)";
-  badge.style.fontSize = "var(--font-size-xs)";
-  badge.style.fontWeight = "var(--font-weight-medium)";
-  badge.style.marginLeft = "var(--space-2)";
-  badge.style.background = "var(--color-bg-subtle)";
-  badge.style.padding = "var(--space-1) var(--space-2)";
-  badge.style.borderRadius = "4px";
+  const badge = el("span", "ngo-verified", "✓ Verified");
   ngoCard.appendChild(badge);
 
   return ngoCard;
@@ -715,14 +615,12 @@ function renderNGOs() {
 
   if (!ngosFiltered.length) {
     const empty = el("div", "empty-state");
-    empty.style.gridColumn = "1 / -1";
-    empty.style.textAlign = "center";
-    empty.style.padding = "var(--space-16) var(--space-6)";
-    empty.style.color = "var(--color-ink-muted)";
     empty.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:64px;height:64px;margin-bottom:var(--space-4);opacity:0.5;margin-left:auto;margin-right:auto;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-      <h3 class="display-3 text-ink" style="margin:0 0 var(--space-2);">No matches found</h3>
-      <p class="body text-muted" style="max-width:28rem;margin:0 auto;">Try a different search term or clear the filters.</p>
+      <div class="empty-inner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        <h3>No matches found</h3>
+        <p>Try a different search term or clear the filters.</p>
+      </div>
     `;
     container.appendChild(empty);
     return;
@@ -743,10 +641,6 @@ function renderNGOs() {
     container.appendChild(categoryHeader);
 
     const ngoGrid = el("div", "ngo-grid");
-    ngoGrid.style.display = "grid";
-    ngoGrid.style.gap = "var(--space-4)";
-    ngoGrid.style.gridTemplateColumns = "1fr";
-
     for (const entry of byCategory[cat]) {
       const card = renderNGO(entry);
       ngoGrid.appendChild(card);
@@ -965,6 +859,7 @@ async function initApp() {
     }
 
     injectJSONLD();
+    initTheme();
     initPinnedCountry();
     handleHashRouting();
     window.addEventListener("hashchange", handleHashRouting);
@@ -1017,6 +912,37 @@ function injectJSONLD() {
     })),
   });
   document.head.appendChild(script);
+}
+
+function initTheme() {
+  const saved = (() => {
+    try {
+      const v = localStorage.getItem("beacon-theme");
+      if (v === "dark" || v === "light") return v;
+    } catch { /* ignore */ }
+    return null;
+  })();
+
+  // Light is the default; persist any manual choice.
+  const theme = saved || "light";
+  document.documentElement.setAttribute("data-theme", theme);
+
+  window.addEventListener("beforeunload", () => {
+    try {
+      const current = document.documentElement.getAttribute("data-theme") || "light";
+      localStorage.setItem("beacon-theme", current);
+    } catch { /* ignore */ }
+  });
+
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
+  btn.addEventListener("click", () => {
+    const next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    btn.setAttribute("aria-label", next === "dark" ? "Switch to light theme" : "Switch to dark theme");
+    try { localStorage.setItem("beacon-theme", next); } catch { /* ignore */ }
+  });
 }
 
 function initPrintButton() {
