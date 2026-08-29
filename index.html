@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon — Crisis Helplines Worldwide</title>
+  <meta name="description" content="Verified crisis and suicide-prevention helplines by country. Every number links to its official source so you can trust what you see.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://ajitsingh25.github.io/beacon/">
+</head>
+<body>
+  <header class="hero">
+    <h1>Beacon</h1>
+    <p class="tagline">Verified crisis helplines, by country. Every number links to its official source.</p>
+    <form class="search" role="search" autocomplete="off" onsubmit="return false;">
+      <input id="search-input" type="search" placeholder="Search for a country or number…" aria-label="Search country">
+    </form>
+  </header>
+
+  <main>
+    <section id="country-list" class="country-list" aria-live="polite"></section>
+    <noscript><p>Please enable JavaScript to use the country list.</p></noscript>
+  </main>
+
+  <footer>
+    <p id="freshness" class="freshness"></p>
+    <p class="disclaimer">
+      Beacon is a directory, not a substitute for professional care or local emergency services.
+      If you are in immediate danger, call your local emergency number.
+      Numbers were reviewed against the official sources linked on each card; they can change — if a line fails, visit the source or ask local services.
+    </p>
+    <p class="contribute">
+      Is a number wrong, or is your country missing? Open an issue on <a href="https://github.com/ajitsingh25/beacon/issues/new?template=add-helpline.yml" rel="noopener">GitHub</a>.
+    </p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+name: Add or update a helpline
+description: Suggest a new crisis helpline or correct an existing entry
+title: "[Helpline] <Country> — <Helpline Name>"
+labels: ["helpline", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for improving Beacon! Every entry must link to an **official, verifiable source** (government health ministry, established NGO, or the helpline's own site). No crowd-sourced lists, Wikipedia, or news articles as primary sources.
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: What are you doing?
+      options:
+        - Add a new helpline for a country not yet listed
+        - Add an additional helpline for a country already listed
+        - Correct / update an existing entry
+    validations:
+      required: true
+
+  - type: input
+    id: country
+    attributes:
+      label: Country name
+      placeholder: e.g., Sweden
+    validations:
+      required: true
+
+  - type: input
+    id: iso
+    attributes:
+      label: ISO 3166-1 alpha-2 code
+      placeholder: SE
+      description: Two-letter country code (see https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+    validations:
+      required: true
+
+  - type: input
+    id: name
+    attributes:
+      label: Helpline name (official)
+      placeholder: e.g., Suicide Prevention Lifeline
+    validations:
+      required: true
+
+  - type: input
+    id: phone
+    attributes:
+      label: Phone number (as dialed locally)
+      placeholder: e.g., 90101 or 0800 111 1 111
+      description: Include the dialing format a person in that country would use. For international format, prefix with + and country code.
+    validations:
+      required: true
+
+  - type: input
+    id: hours
+    attributes:
+      label: Hours of operation
+      placeholder: 24/7 or Mon–Fri 9–17
+    validations:
+      required: true
+
+  - type: input
+    id: languages
+    attributes:
+      label: Languages (comma-separated)
+      placeholder: Swedish, English
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      placeholder: Free, anonymous; also offers chat at example.org/chat
+      description: Anything a caller should know (cost, callback, chat, text, veteran line, etc.)
+
+  - type: input
+    id: sourceName
+    attributes:
+      label: Source name (official organization)
+      placeholder: e.g., National Board of Health and Welfare
+    validations:
+      required: true
+
+  - type: input
+    id: sourceUrl
+    attributes:
+      label: Source URL (must be https)
+      placeholder: https://www.socialstyrelsen.se/suicide-prevention/
+      description: Direct link to the page that lists this number. Must be the helpline's own site or a government health ministry page.
+    validations:
+      required: true
+
+  - type: input
+    id: lastChecked
+    attributes:
+      label: Date you verified this (YYYY-MM-DD)
+      placeholder: 2026-08-29
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Confirmation
+      options:
+        - label: I verified this number on the official source linked above today
+          required: true
+        - label: This is not a crowd-sourced list, news article, or Wikipedia page
+          required: true
