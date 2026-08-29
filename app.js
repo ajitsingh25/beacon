@@ -502,6 +502,12 @@ function NGOMatches(entry) {
   return activeNGOCategories.has(entry.category);
 }
 
+function languageMatches(entry) {
+  if (activeLanguages.size === 0) return true;
+  if (!entry.languages) return false;
+  return entry.languages.some((l) => activeLanguages.has(l.toLowerCase()));
+}
+
 function contactToText(contact) {
   if (!contact) return "";
   if (contact.includes("http")) {
