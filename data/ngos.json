@@ -1,0 +1,185 @@
+{
+  "lastUpdated": "2026-08-29",
+  "ngos": [
+    {
+      "name": "Action Against Hunger",
+      "category": "food",
+      "contact": "https://www.actionagainsthunger.org/",
+      "countries": ["Global"],
+      "reach": "Global programs in 50+ countries; treats acute malnutrition and supports food security",
+      "focus": "Ending world hunger through nutrition programs, livelihood support, and advocacy",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "CARE International",
+      "category": "food",
+      "contact": "https://www.care.org/",
+      "countries": ["111 countries"],
+      "reach": "Reaches 174 million people annually; focus on women and girls",
+      "focus": "Poverty reduction, hunger alleviation, women's empowerment, education, water and sanitation",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "World Vision",
+      "category": "food",
+      "contact": "https://www.worldvision.org/",
+      "countries": ["100+ countries"],
+      "reach": "Nearly 30 million people helped annually through disaster relief and development programs",
+      "focus": "Nutrition, food aid, livelihoods, emergency response, long-term development",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Concern Worldwide",
+      "category": "food",
+      "contact": "https://www.concern.net/",
+      "countries": ["24 countries"],
+      "reach": "Operates in some of the world's poorest countries; focus on conflict-induced hunger",
+      "focus": "Ending poverty, responding to humanitarian crises, tackling climate change",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Habitat for Humanity",
+      "category": "shelter",
+      "contact": "https://www.habitat.org/",
+      "countries": ["70+ countries"],
+      "reach": "Has helped over 35 million people build, repair, or improve homes",
+      "focus": "Secure housing, home repairs, financial literacy, pathway to homeownership",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Depaul",
+      "category": "shelter",
+      "contact": "https://www.depaul.org/",
+      "countries": ["Europe, especially UK, Ireland, France, Poland; Ukraine operations"],
+      "reach": "Provides housing and support to thousands of homeless people annually",
+      "focus": "Shelter for homeless individuals, families, mothers with children, refugees; employment support",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Global Sisters",
+      "category": "shelter",
+      "contact": "https://www.globalsisters.org/",
+      "countries": ["Australia"],
+      "reach": "Provides affordable housing and community support for low-income women at risk of homelessness",
+      "focus": "Affordable permanent housing, community support, financial pathways for home finance",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Gawad Kalinga Community Development Foundation",
+      "category": "shelter",
+      "contact": "https://gawadkalinga.org/",
+      "countries": ["Philippines"],
+      "reach": "Addresses homelessness due to extreme poverty; provides secure housing, healthcare, financial literacy",
+      "focus": "Ending poverty, building communities, secure housing for families in the Philippines",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Médecins Sans Frontières / Doctors Without Borders",
+      "category": "medical",
+      "contact": "https://www.msf.org/",
+      "countries": ["70+ countries"],
+      "reach": "Provides emergency medical aid to 10 million patients annually; operates in conflict/disaster zones",
+      "focus": "Free medical care in conflict zones, disaster areas, and endemic disease regions; neutral, impartial, independent",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Partners in Health",
+      "category": "medical",
+      "contact": "https://www.partnersinhealth.org/",
+      "countries": ["11 countries (Peru, Rwanda, Mexico, Haiti, Malawi, Sierra Leone, Liberia, Lesotho, US, Russia)"],
+      "reach": "Provides comprehensive healthcare and builds health systems in partnership with governments and communities",
+      "focus": "Lift underserved communities out of despair; provide benefits of modern medical science; maternal health, infectious disease, surgery",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Direct Relief",
+      "category": "medical",
+      "contact": "https://www.directrelief.org/",
+      "countries": ["Global"],
+      "reach": "Provides medical assistance in 100+ countries; $3.5B+ in donated medical aid distributed",
+      "focus": "Emergency response, chronic disease support, maternal and child health, disaster resilience",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "International Medical Corps",
+      "category": "medical",
+      "contact": "https://internationalmedicalcorps.org/",
+      "countries": ["Global"],
+      "reach": "Trains local health workers, provides emergency medical relief and development programs in crisis zones",
+      "focus": "Emergency response, health system strengthening, mental health, maternal and child health, capacity building",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "National Association of Free and Charitable Clinics (NAFC)",
+      "category": "medical",
+      "contact": "https://nafcclinics.org/",
+      "countries": ["United States"],
+      "reach": "1,400+ free and charitable clinics serving medically underserved populations",
+      "focus": "Affordable quality healthcare for uninsured, underinsured, and vulnerable populations; disaster relief support",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Save the Children",
+      "category": "education",
+      "contact": "https://www.savethechildren.org/",
+      "countries": ["116 countries"],
+      "reach": "Reaches millions of children annually; ensures children have a healthy start, the opportunity to learn, and protection from harm",
+      "focus": "Children's rights, education access, emergency response, livelihoods, gender equality",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Room to Read",
+      "category": "education",
+      "contact": "https://www.roomtoread.org/",
+      "countries": ["30+ countries across Asia and Africa"],
+      "reach": "Transformative education for 31+ million children; focus on literacy and girls' education",
+      "focus": "Literacy skills, gender equality in education, quality learning environments, life skills",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Malala Fund",
+      "category": "education",
+      "contact": "https://www.malala.org/",
+      "countries": ["Global, focus on 6 countries with largest gender gaps in secondary education"],
+      "reach": "Advocates for 12 years of free, safe, quality education for all girls; amplifies girls' voices",
+      "focus": "Girls' secondary education, advocacy, breaking barriers, education champions network",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "World Vision",
+      "category": "education",
+      "contact": "https://www.worldvision.org/",
+      "countries": ["100+ countries"],
+      "reach": "Education programs in development and emergency contexts; 30 million children supported in education",
+      "focus": "Literacy, teacher training, school construction, education in emergencies, child protection",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "name": "Dolly Children Foundation",
+      "category": "education",
+      "contact": "https://dollychildrenfoundation.org/",
+      "countries": ["Nigeria"],
+      "reach": "Over 23,000 out-of-school children reached in 30 communities across 5 Nigerian states since 2009",
+      "focus": "Quality education for underserved children; scholarships, reading clubs, after-school programs, life skills (coding, baking, art, financial literacy, sanitary hygiene, mentoring)",
+      "verified": true,
+      "lastChecked": "2026-08-29"
+    }
+  ]
+}

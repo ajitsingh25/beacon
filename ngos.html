@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beacon — Trusted NGOs for Food, Shelter, Medical & Education</title>
+  <meta name="description" content="Verified global NGOs providing food assistance, emergency shelter, medical care, and education support. Every entry links to its official source so you can trust what you see.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"></noscript>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="canonical" href="https://ajitsingh25.github.io/beacon/ngos/">
+</head>
+<body>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("sw.js").catch(() => {});
+      });
+    }
+  </script>
+  <header class="hero" role="banner">
+    <div class="container hero-inner">
+      <div class="hero-top">
+        <div class="brand" aria-label="Beacon — NGOs for basic needs">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <h1 class="brand-name display-1 text-ink">Beacon</h1>
+        </div>
+        <button id="quick-exit" class="quick-exit" type="button" aria-label="Quick exit to neutral site">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+          Exit
+        </button>
+      </div>
+      <h2 class="hero-headline display-2 text-ink">Trusted NGOs for basic needs</h2>
+      <p class="hero-subtext text-muted">Verified global NGOs by category. Every entry links to its official source so you can trust what you see.</p>
+
+      <form id="search-form" class="search-form" role="search" autocomplete="off" onsubmit="return false;">
+        <div class="search-wrapper">
+          <input id="search-input" class="search-input" type="search" placeholder="Search for an NGO or category…" aria-label="Search NGO or category" autocapitalize="off" autocorrect="off" spellcheck="false">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          <button type="button" class="search-clear" id="search-clear" aria-label="Clear search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </form>
+
+      <div id="language-chips" class="language-filter" aria-label="Filter by language" role="group"></div>
+
+      <div id="category-chips" class="category-filter" aria-label="Filter by category" role="group"></div>
+
+      <div id="pinned-banner" class="pinned-banner hidden" aria-live="polite" role="status">
+        <span class="pinned-banner-text" id="pinned-banner-text"></span>
+        <button type="button" class="pinned-dismiss" id="pinned-dismiss" aria-label="Show all NGOs">Show all countries</button>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+    <div class="container">
+      <section id="ngo-list" class="ngo-list" aria-live="polite" aria-label="NGOs by category"></section>
+    </div>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p id="freshness" class="freshness mono-sm text-brand"></p>
+
+      <div class="disclaimer">
+        <p class="disclaimer-title">Important</p>
+        <p class="disclaimer-text">Beacon is a directory, not a substitute for professional care or local emergency services. If you are in immediate danger, call your local emergency service. NGO program details can change — if one fails, search the source site or ask local services. This directory is a starting point, not a substitute for professional aid or local social services.</p>
+      </div>
+
+      <p class="contribute">
+        <a href="https://github.com/ajitsingh25/beacon/issues/new?template=add-helpline.yml" class="contribute-link" rel="noopener" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12h6M9 6h6M9 18h6M5 6v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6"/></svg>
+          Missing or wrong NGO? Open an issue
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

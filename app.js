@@ -7,6 +7,7 @@ let all = [];
 let filtered = [];
 let activeLanguages = new Set();
 let activeCategories = new Set();
+let activeNGOCategories = new Set();
 let pinnedIso = null;
 let activeCountryHash = null;
 
@@ -29,6 +30,15 @@ const CATEGORY_LABELS = {
   "human-trafficking": "Human Trafficking",
   "lgbtq": "LGBTQ+",
   "veterans": "Veterans"
+};
+
+const NGO_CATEGORIES = ["food", "shelter", "medical", "education"];
+
+const NGO_LABELS = {
+  "food": "Food",
+  "shelter": "Shelter",
+  "medical": "Medical",
+  "education": "Education"
 };
 
 // Timezone → ISO mapping for auto-detect (no permission needed)
@@ -473,15 +483,35 @@ function matchEntry(entry, term) {
   return term.split(/\s+/).every((piece) => haystack.includes(piece));
 }
 
-function languageMatches(entry) {
-  if (activeLanguages.size === 0) return true;
-  if (!entry.languages) return false;
-  return entry.languages.some((l) => activeLanguages.has(l.toLowerCase()));
+function matchNGOEntry(entry, term) {
+  const haystack = [
+    entry.name,
+    entry.category,
+    contactToText(entry.contact),
+    entry.countries ? entry.countries.join(" ") : "",
+    entry.focus || "",
+  ].join(" ").toLowerCase();
+
+  return term.split(/\s+/).every((piece) => haystack.includes(piece));
 }
 
-function categoryMatches(entry) {
-  if (activeCategories.size === 0) return true;
-  return activeCategories.has(entry.category);
+function NGOMatches(entry) {
+  if (activeNGOCategories.size === 0) return true;
+  return activeNGOCategories.has(entry.category);
+}
+
+function contactToText(contact) {
+  if (!contact) return "";
+  if (contact.includes("http")) {
+    // Extract domain from URL
+    try {
+      const url = new URL(contact);
+      return url.hostname;
+    } catch (e) {
+      return contact;
+    }
+  }
+  return contact;
 }
 
 function applyFilters() {
@@ -494,6 +524,16 @@ function applyFilters() {
   render(list);
   renderLanguageChips();
   renderCategoryChips();
+
+  // Also filter NGOs if ngos data is loaded (ngos.html page)
+  if (typeof ngos !== "undefined" && ngos.length > 0) {
+    let ngoList = ngos;
+    if (term) ngoList = ngoList.filter((e) => matchNGOEntry(e, term));
+    ngoList = ngoList.filter(NGOMatches);
+    ngosFiltered = ngoList;
+    renderNGOs();
+    renderNGOChips();
+  }
 }
 
 function renderLanguageChips() {
@@ -552,6 +592,152 @@ function renderCategoryChips() {
       applyFilters();
     });
     container.appendChild(chip);
+  }
+}
+
+function renderNGOChips() {
+  const container = document.getElementById("category-chips");
+  if (!container) return;
+
+  const categoryCounts = {};
+  for (const entry of ngosFiltered) {
+    const cat = entry.category;
+    if (cat) {
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    }
+  }
+
+  container.innerHTML = "";
+  // Show only categories that have entries in the filtered set, in the defined order
+  for (const cat of NGO_CATEGORIES) {
+    if (!(cat in categoryCounts) || categoryCounts[cat] === 0) continue;
+    const active = activeNGOCategories.has(cat);
+    const chip = el("button", "ngo-chip" + (active ? " active" : ""));
+    chip.type = "button";
+    chip.setAttribute("aria-pressed", active);
+    chip.innerHTML = `${NGO_LABELS[cat]} <span class="ngo-chip-count">${categoryCounts[cat]}</span>`;
+    chip.addEventListener("click", () => {
+      if (activeNGOCategories.has(cat)) activeNGOCategories.delete(cat);
+      else activeNGOCategories.add(cat);
+      applyFilters();
+    });
+    container.appendChild(chip);
+  }
+}
+
+function renderNGO(entry) {
+  const ngoCard = el("article", "ngo-card");
+
+  // Name and category
+  const header = el("div", "ngo-header");
+  header.style.display = "flex";
+  header.style.alignItems = "flex-start";
+  header.style.justifyContent = "space-between";
+  header.style.gap = "var(--space-3)";
+  header.style.flexWrap = "wrap";
+
+  const name = el("h3", "ngo-name display-3 text-ink", entry.name);
+  header.appendChild(name);
+
+  const category = el("span", "ngo-category mono-sm text-brand", NGO_LABELS[entry.category]);
+  header.appendChild(category);
+
+  ngoCard.appendChild(header);
+
+  // Contact/website
+  const contactRow = el("div", "ngo-contact");
+  contactRow.style.display = "flex";
+  contactRow.style.flexDirection = "column";
+  contactRow.style.gap = "var(--space-2)";
+  contactRow.style.paddingTop = "var(--space-2)";
+  contactRow.style.borderTop = "1px solid var(--color-border)";
+  contactRow.style.marginTop = "var(--space-1)";
+
+  if (entry.contact) {
+    const contactLink = el("a", "ngo-contact-link", "Official Website");
+    contactLink.href = entry.contact;
+    contactLink.target = "_blank";
+    contactLink.rel = "noopener";
+    contactLink.style.color = "var(--color-brand)";
+    contactLink.style.fontWeight = "var(--font-weight-medium)";
+    contactLink.style.textDecoration = "none";
+    contactRow.appendChild(contactLink);
+  }
+
+  ngoCard.appendChild(contactRow);
+
+  // Focus/reach
+  if (entry.reach) {
+    const reach = el("p", "ngo-reach body-sm text-muted", entry.reach);
+    ngoCard.appendChild(reach);
+  }
+
+  // Focus
+  if (entry.focus) {
+    const focus = el("p", "ngo-focus body-sm text-muted", entry.focus);
+    ngoCard.appendChild(focus);
+  }
+
+  // Verified badge
+  const badge = el("span", "ngo-verified", "Verified");
+  badge.style.color = "var(--color-brand)";
+  badge.style.fontSize = "var(--font-size-xs)";
+  badge.style.fontWeight = "var(--font-weight-medium)";
+  badge.style.marginLeft = "var(--space-2)";
+  badge.style.background = "var(--color-bg-subtle)";
+  badge.style.padding = "var(--space-1) var(--space-2)";
+  badge.style.borderRadius = "4px";
+  ngoCard.appendChild(badge);
+
+  return ngoCard;
+}
+
+function renderNGOs() {
+  const container = document.getElementById("ngo-list");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  if (!ngosFiltered.length) {
+    const empty = el("div", "empty-state");
+    empty.style.gridColumn = "1 / -1";
+    empty.style.textAlign = "center";
+    empty.style.padding = "var(--space-16) var(--space-6)";
+    empty.style.color = "var(--color-ink-muted)";
+    empty.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:64px;height:64px;margin-bottom:var(--space-4);opacity:0.5;margin-left:auto;margin-right:auto;" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <h3 class="display-3 text-ink" style="margin:0 0 var(--space-2);">No matches found</h3>
+      <p class="body text-muted" style="max-width:28rem;margin:0 auto;">Try a different search term or clear the filters.</p>
+    `;
+    container.appendChild(empty);
+    return;
+  }
+
+  // Group by category
+  const byCategory = {};
+  for (const entry of ngosFiltered) {
+    if (!byCategory[entry.category]) byCategory[entry.category] = [];
+    byCategory[entry.category].push(entry);
+  }
+
+  // Sort categories in defined order
+  const categories = NGO_CATEGORIES.filter(c => byCategory[c]);
+
+  for (const cat of categories) {
+    const categoryHeader = el("h2", "category-header", NGO_LABELS[cat]);
+    container.appendChild(categoryHeader);
+
+    const ngoGrid = el("div", "ngo-grid");
+    ngoGrid.style.display = "grid";
+    ngoGrid.style.gap = "var(--space-4)";
+    ngoGrid.style.gridTemplateColumns = "1fr";
+
+    for (const entry of byCategory[cat]) {
+      const card = renderNGO(entry);
+      ngoGrid.appendChild(card);
+    }
+
+    container.appendChild(ngoGrid);
   }
 }
 
@@ -752,6 +938,17 @@ async function initApp() {
     all = data.helplines;
     filtered = all;
 
+    // Also fetch NGO data
+    const ngoRes = await fetch("data/ngos.json");
+    if (ngoRes.ok) {
+      const ngoData = await ngoRes.json();
+      ngos = ngoData.ngos;
+      ngosFiltered = ngos;
+    } else {
+      ngos = [];
+      ngosFiltered = [];
+    }
+
     injectJSONLD();
     initPinnedCountry();
     handleHashRouting();
@@ -762,6 +959,7 @@ async function initApp() {
     initPinnedDismiss();
     initPrintButton();
     renderCategoryChips();
+    renderNGOChips();
     loadStatus();
     updateHashFromPinned();
   } catch (err) {
