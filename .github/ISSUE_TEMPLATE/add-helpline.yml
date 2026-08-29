@@ -69,6 +69,48 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: emergency
+    attributes:
+      label: Emergency number(s)
+      placeholder: e.g., 112 or 911 / 999
+      description: Local emergency number(s) for this country
+    validations:
+      required: true
+
+  - type: input
+    id: chatUrl
+    attributes:
+      label: Web chat URL (HTTPS)
+      placeholder: https://example.org/chat
+      description: Official web chat page (helpline site or gov health ministry). Optional.
+    validations:
+      required: false
+
+  - type: input
+    id: textNumber
+    attributes:
+      label: Text/SMS number (local format)
+      placeholder: 741741
+      description: SMS number for crisis text line. Optional.
+    validations:
+      required: false
+
+  - type: textarea
+    id: fallback
+    attributes:
+      label: Fallback numbers (YAML or JSON array)
+      placeholder: |
+        - name: Crisis Text Line
+          phone: "741741"
+          notes: "Text HOME to 741741"
+        - name: Veterans Crisis Line
+          phone: "988 then press 1"
+          notes: "For veterans and families"
+      description: Alternate lines if primary is busy. Include name, phone (optional), notes. Optional.
+    validations:
+      required: false
+
   - type: textarea
     id: notes
     attributes:

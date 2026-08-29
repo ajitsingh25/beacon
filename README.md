@@ -30,6 +30,13 @@ Data is version-controlled, validated on every push, and re-checked daily via Gi
       "hours": "24/7",
       "languages": ["English", "Spanish"],
       "notes": "Call or text 988. Press 2 for Spanish, or text AYUDA.",
+      "emergency": "911",
+      "chatUrl": "https://988lifeline.org/chat/",
+      "textNumber": "988",
+      "fallback": [
+        { "name": "Crisis Text Line", "phone": "741741", "notes": "Text HOME to 741741" },
+        { "name": "Veterans Crisis Line", "phone": "988 then press 1", "notes": "For veterans and families" }
+      ],
       "sourceName": "988 Lifeline",
       "sourceUrl": "https://988lifeline.org/get-help/",
       "lastChecked": "2026-08-29"
@@ -49,6 +56,10 @@ Data is version-controlled, validated on every push, and re-checked daily via Gi
 | `hours` | string | e.g., `24/7`, `Mon–Fri 9–17` |
 | `languages` | string[] | e.g., `["English", "Spanish"]` |
 | `notes` | string | Free text for caller context |
+| `emergency` | string | Local emergency number(s) (e.g., `911`, `112`, `999`) |
+| `chatUrl` | string \| null | HTTPS URL to web chat (official source) |
+| `textNumber` | string \| null | SMS/text number in local format |
+| `fallback` | object[] | Alternate lines if primary is busy: `[{name, phone?, notes}]` |
 | `sourceName` | string | Organization that publishes the number |
 | `sourceUrl` | string | **Must be HTTPS**, direct link to the page listing the number |
 | `lastChecked` | string | `YYYY-MM-DD` — date you verified the number on the source page |
