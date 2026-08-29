@@ -10,6 +10,8 @@ let activeCategories = new Set();
 let activeNGOCategories = new Set();
 let pinnedIso = null;
 let activeCountryHash = null;
+let ngos = [];
+let ngosFiltered = [];
 
 // ITU-T E.164 country calling codes for countries in our dataset
 const COUNTRY_CALLING_CODES = {
