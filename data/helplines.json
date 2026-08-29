@@ -544,6 +544,68 @@
       "sourceName": "Ministério da Mulheres",
       "sourceUrl": "https://www.gov.br/mulheres/pt-br/acentos-e-canais-de-atendimento/central-de-atendimento-a-mulher",
       "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United States",
+      "iso": "US",
+      "category": "substance-use",
+      "tags": ["substance", "addiction", "treatment", "24/7", "helpline", "english", "spanish"],
+      "name": "SAMHSA National Helpline",
+      "phone": "1-800-662-4357",
+      "hours": "24/7",
+      "languages": ["English", "Spanish"],
+      "notes": "Free, confidential treatment referral and information service for individuals and families facing mental and/or substance use disorders. Call 1-800-662-4357 (HELP) for treatment referral and information. Also available via text: HELP4U (435748).",
+      "emergency": "911",
+      "chatUrl": "https://www.samhsa.gov/find-help/helplines/national-helpline",
+      "textNumber": "435748",
+      "fallback": [
+        { "name": "Crisis Text Line", "phone": "741741", "notes": "Text HOME to 741741" },
+        { "name": "Disaster Distress Helpline", "phone": "1-800-985-5990", "notes": "Call or text TalkWithUs to 66746 for crisis counseling related to disasters" }
+      ],
+      "sourceName": "SAMHSA - Substance Abuse and Mental Health Services Administration",
+      "sourceUrl": "https://www.samhsa.gov/find-help/national-helpline",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United Kingdom",
+      "iso": "GB",
+      "category": "substance-use",
+      "tags": ["substance", "addiction", "drugs", "24/7", "free", "confidential"],
+      "name": "FRANK",
+      "phone": "0300 123 6600",
+      "hours": "24/7",
+      "languages": ["English"],
+      "notes": "Confidential advice about drugs you're taking or have taken. Call FRANK 24 hours a day, 7 days a week for friendly, confidential advice. Text 82111 for drug-related questions. Live chat available 2pm-6pm daily at talktofrank.com. Interpreters available in 120 languages.",
+      "emergency": "999",
+      "chatUrl": "https://www.talktofrank.com/livechat",
+      "textNumber": "82111",
+      "fallback": [
+        { "name": "Release", "phone": "020 7324 2989", "notes": "Free and confidential drugs helpline with free legal advice" },
+        { "name": "We Are With You", "phone": "0300 123 6600", "notes": "Webchat and face-to-face addiction support services" }
+      ],
+      "sourceName": "FRANK",
+      "sourceUrl": "https://www.talktofrank.com/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Germany",
+      "iso": "DE",
+      "category": "human-trafficking",
+      "tags": ["trafficking", "victim", "116", "24/7", "victim-support", "german"],
+      "name": "WEISSER RING Notruf 116 006",
+      "phone": "116 006",
+      "hours": "Mon–Sun 7–22",
+      "languages": ["German"],
+      "notes": "Germany's nationwide victim support helpline. Free, anonymous, available daily 7–22h. Supports victims of crime including human trafficking, domestic violence, and sexual assault. Part of Child Helpline International network.",
+      "emergency": "112",
+      "chatUrl": "https://weisser-ring.de/english",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Weiße Ring lokale Außenstelle", "phone": null, "notes": "Find local branch at weisser-ring.de" }
+      ],
+      "sourceName": "WEISSER RING e. V.",
+      "sourceUrl": "https://weisser-ring.de/english",
+      "lastChecked": "2026-08-29"
     }
   ]
 }
