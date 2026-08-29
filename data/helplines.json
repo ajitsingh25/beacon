@@ -10,6 +10,7 @@
       "hours": "24/7",
       "languages": ["English", "Spanish"],
       "notes": "Call or text 988; also chat at 988lifeline.org. Press 2 for Spanish, or text AYUDA. For veterans, press 1.",
+      "emergency": "911",
       "sourceName": "988 Lifeline",
       "sourceUrl": "https://988lifeline.org/get-help/",
       "lastChecked": "2026-08-29"
@@ -22,6 +23,7 @@
       "hours": "24/7",
       "languages": ["English", "French"],
       "notes": "Call or text 988. French service available via this number.",
+      "emergency": "911",
       "sourceName": "Government of Canada",
       "sourceUrl": "https://988.ca/",
       "lastChecked": "2026-08-29"
@@ -34,6 +36,7 @@
       "hours": "24/7",
       "languages": ["English", "French"],
       "notes": "Call 1-833-456-4566. Text 45645, 4:00 pm - midnight ET.",
+      "emergency": "911",
       "sourceName": "Talk Suicide Canada",
       "sourceUrl": "https://talksuicide.ca/",
       "lastChecked": "2026-08-29"
@@ -46,6 +49,7 @@
       "hours": "24/7",
       "languages": ["English"],
       "notes": "Free to call from any phone. Also email jo@samaritans.org.",
+      "emergency": "999",
       "sourceName": "Samaritans",
       "sourceUrl": "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
       "lastChecked": "2026-08-29"
@@ -58,6 +62,7 @@
       "hours": "24/7",
       "languages": ["English"],
       "notes": "Crisis support. In an emergency or immediate danger call 000.",
+      "emergency": "000",
       "sourceName": "Lifeline Australia",
       "sourceUrl": "https://www.lifeline.org.au/131114",
       "lastChecked": "2026-08-29"
@@ -70,6 +75,7 @@
       "hours": "24/7",
       "languages": ["English", "Te Reo Māori"],
       "notes": "Free call or text 1737. In immediate danger call 111.",
+      "emergency": "111",
       "sourceName": "1737",
       "sourceUrl": "https://www.1737.org.nz/",
       "lastChecked": "2026-08-29"
@@ -82,6 +88,7 @@
       "hours": "24/7",
       "languages": ["Hindi", "English", "multiple regional languages"],
       "notes": "Government tele-mental health helpline. Also toll-free 1-800 891 4416.",
+      "emergency": "112",
       "sourceName": "Tele-MANAS (Ministry of Health)",
       "sourceUrl": "https://telemanas.mohfw.gov.in/",
       "lastChecked": "2026-08-29"
@@ -94,6 +101,7 @@
       "hours": "24/7",
       "languages": ["German"],
       "notes": "Free, anonymous. Also 0800 111 0 222 and 116 123.",
+      "emergency": "112",
       "sourceName": "TelefonSeelsorge",
       "sourceUrl": "https://www.telefonseelsorge.de/",
       "lastChecked": "2026-08-29"
@@ -106,6 +114,7 @@
       "hours": "24/7",
       "languages": ["French"],
       "notes": "Free national suicide-prevention line (Ministère de la Santé).",
+      "emergency": "112",
       "sourceName": "3114",
       "sourceUrl": "https://3114.fr/",
       "lastChecked": "2026-08-29"
@@ -118,6 +127,7 @@
       "hours": "24/7",
       "languages": ["Spanish"],
       "notes": "Free, confidential suicide-prevention line from the Ministry of Health.",
+      "emergency": "112",
       "sourceName": "Ministerio de Sanidad",
       "sourceUrl": "https://www.sanidad.gob.es/",
       "lastChecked": "2026-08-29"
@@ -130,6 +140,7 @@
       "hours": "Not 24/7",
       "languages": ["Italian"],
       "notes": "Volunteer listening line, open every afternoon and evening. Check the site for current hours.",
+      "emergency": "112",
       "sourceName": "Telefono Amico",
       "sourceUrl": "https://www.telefonoamico.it/",
       "lastChecked": "2026-08-29"
@@ -142,6 +153,7 @@
       "hours": "24/7",
       "languages": ["Dutch"],
       "notes": "National suicide-prevention line and chat. 0800-0113 toll-free also available.",
+      "emergency": "112",
       "sourceName": "113 Zelfmoordpreventie",
       "sourceUrl": "https://www.113.nl/",
       "lastChecked": "2026-08-29"
@@ -154,6 +166,7 @@
       "hours": "24/7",
       "languages": ["Japanese"],
       "notes": "Tokyo Lifeline Phone 03-3264-4343 (24-hour). National toll-free number is 0120-783-556.",
+      "emergency": "110 (police) / 119 (ambulance)",
       "sourceName": "Tokyo Inochi no Denwa",
       "sourceUrl": "https://www.indt.jp/",
       "lastChecked": "2026-08-29"
@@ -166,6 +179,7 @@
       "hours": "24/7",
       "languages": ["Korean"],
       "notes": "Ministry of Health and Welfare crisis line.",
+      "emergency": "112 (police) / 119 (fire/ambulance)",
       "sourceName": "Korea Foundation for Suicide Prevention",
       "sourceUrl": "http://www.spckorea.or.kr/",
       "lastChecked": "2026-08-29"
@@ -178,6 +192,7 @@
       "hours": "24/7",
       "languages": ["English", "Mandarin", "Malay", "Tamil"],
       "notes": "24-hour hotline 1767. Also CareText (SMS) at 9151 1767, Mon-Sun.",
+      "emergency": "995 (ambulance) / 999 (police)",
       "sourceName": "Samaritans of Singapore",
       "sourceUrl": "https://www.sos.org.sg/",
       "lastChecked": "2026-08-29"
@@ -190,6 +205,7 @@
       "hours": "24/7",
       "languages": ["Hebrew", "English", "Russian", "Arabic"],
       "notes": "Free 24/7 emotional support line. English option available; check site for details.",
+      "emergency": "100 (police) / 101 (ambulance)",
       "sourceName": "ERAN",
       "sourceUrl": "https://en.eran.org.il/",
       "lastChecked": "2026-08-29"
@@ -202,6 +218,7 @@
       "hours": "24/7",
       "languages": ["English"],
       "notes": "Free toll-free 24/7 crisis line. Text 31393.",
+      "emergency": "10111 (police) / 10177 (ambulance)",
       "sourceName": "SADAG",
       "sourceUrl": "https://www.sadag.org/",
       "lastChecked": "2026-08-29"
@@ -214,6 +231,7 @@
       "hours": "Office hours",
       "languages": ["English", "Hausa"],
       "notes": "Multiple lines: 09080217555 (9mobile), 09034400009 (MTN), 08142241007 (Hausa), 08000787746 (toll-free). In emergency call 112.",
+      "emergency": "112",
       "sourceName": "SURPIN",
       "sourceUrl": "https://www.nigerianmentalhealth.org/helplines",
       "lastChecked": "2026-08-29"
@@ -226,6 +244,7 @@
       "hours": "Office hours",
       "languages": ["English", "Swahili"],
       "notes": "Call +254 722 178 177. Also +254 700 000 148. See site for current hours.",
+      "emergency": "999 / 112",
       "sourceName": "Befrienders Kenya",
       "sourceUrl": "https://befrienderske.org/",
       "lastChecked": "2026-08-29"
@@ -238,6 +257,7 @@
       "hours": "24/7",
       "languages": ["Portuguese"],
       "notes": "Free 24/7 emotional support by phone, chat or email.",
+      "emergency": "190 (police) / 192 (ambulance) / 193 (fire)",
       "sourceName": "CVV",
       "sourceUrl": "https://cvv.org.br/",
       "lastChecked": "2026-08-29"
@@ -250,6 +270,7 @@
       "hours": "24/7",
       "languages": ["Spanish"],
       "notes": "Free government psychological-support line. Also 55 5259 8121. Línea de la Vida: 800 822 3737.",
+      "emergency": "911",
       "sourceName": "SAPTEL",
       "sourceUrl": "https://www.saptel.org.mx/",
       "lastChecked": "2026-08-29"
