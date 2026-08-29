@@ -11,6 +11,12 @@
       "languages": ["English", "Spanish"],
       "notes": "Call or text 988; also chat at 988lifeline.org. Press 2 for Spanish, or text AYUDA. For veterans, press 1.",
       "emergency": "911",
+      "chatUrl": "https://988lifeline.org/chat/",
+      "textNumber": "988",
+      "fallback": [
+        { "name": "Crisis Text Line", "phone": "741741", "notes": "Text HOME to 741741" },
+        { "name": "Veterans Crisis Line", "phone": "988 then press 1", "notes": "For veterans and families" }
+      ],
       "sourceName": "988 Lifeline",
       "sourceUrl": "https://988lifeline.org/get-help/",
       "lastChecked": "2026-08-29"
@@ -24,6 +30,12 @@
       "languages": ["English", "French"],
       "notes": "Call or text 988. French service available via this number.",
       "emergency": "911",
+      "chatUrl": "https://988.ca/en/chat/",
+      "textNumber": "988",
+      "fallback": [
+        { "name": "Talk Suicide", "phone": "1-833-456-4566", "notes": "Also text 45645 (4pm–midnight ET)" },
+        { "name": "Kids Help Phone", "phone": "1-800-668-6868", "notes": "Text CONNECT to 686868" }
+      ],
       "sourceName": "Government of Canada",
       "sourceUrl": "https://988.ca/",
       "lastChecked": "2026-08-29"
@@ -37,6 +49,11 @@
       "languages": ["English", "French"],
       "notes": "Call 1-833-456-4566. Text 45645, 4:00 pm - midnight ET.",
       "emergency": "911",
+      "chatUrl": "https://www.hopeforwellness.ca/",
+      "textNumber": "45645",
+      "fallback": [
+        { "name": "988 Suicide Crisis Helpline", "phone": "988", "notes": "Call or text 988" }
+      ],
       "sourceName": "Talk Suicide Canada",
       "sourceUrl": "https://talksuicide.ca/",
       "lastChecked": "2026-08-29"
@@ -50,6 +67,12 @@
       "languages": ["English"],
       "notes": "Free to call from any phone. Also email jo@samaritans.org.",
       "emergency": "999",
+      "chatUrl": "https://www.samaritans.org/how-we-can-help/contact-samaritan/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "SHOUT Crisis Text Line", "phone": "85258", "notes": "Text SHOUT to 85258" },
+        { "name": "Papyrus HOPELINEUK", "phone": "0800 068 4141", "notes": "For under 35s, 9am–midnight" }
+      ],
       "sourceName": "Samaritans",
       "sourceUrl": "https://www.samaritans.org/how-we-can-help/contact-samaritan/talk-us-phone/",
       "lastChecked": "2026-08-29"
@@ -63,6 +86,12 @@
       "languages": ["English"],
       "notes": "Crisis support. In an emergency or immediate danger call 000.",
       "emergency": "000",
+      "chatUrl": "https://www.lifeline.org.au/crisis-chat/",
+      "textNumber": "0477 13 11 14",
+      "fallback": [
+        { "name": "Suicide Call Back Service", "phone": "1300 659 467", "notes": "24/7 phone & online chat" },
+        { "name": "Beyond Blue", "phone": "1300 22 4636", "notes": "24/7 support for anxiety/depression" }
+      ],
       "sourceName": "Lifeline Australia",
       "sourceUrl": "https://www.lifeline.org.au/131114",
       "lastChecked": "2026-08-29"
@@ -76,6 +105,12 @@
       "languages": ["English", "Te Reo Māori"],
       "notes": "Free call or text 1737. In immediate danger call 111.",
       "emergency": "111",
+      "chatUrl": "https://1737.org.nz/",
+      "textNumber": "1737",
+      "fallback": [
+        { "name": "Lifeline Aotearoa", "phone": "0800 543 354", "notes": "24/7 suicide prevention" },
+        { "name": "Youthline", "phone": "0800 376 633", "notes": "Text 234, web chat available" }
+      ],
       "sourceName": "1737",
       "sourceUrl": "https://www.1737.org.nz/",
       "lastChecked": "2026-08-29"
@@ -89,6 +124,12 @@
       "languages": ["Hindi", "English", "multiple regional languages"],
       "notes": "Government tele-mental health helpline. Also toll-free 1-800 891 4416.",
       "emergency": "112",
+      "chatUrl": null,
+      "textNumber": null,
+      "fallback": [
+        { "name": "iCall (TISS)", "phone": "9152987821", "notes": "Mon–Sat 8am–10pm, email icall@tiss.edu" },
+        { "name": "Vandrevala Foundation", "phone": "1860-2662-345 / 1800-2333-330", "notes": "24/7 multilingual" }
+      ],
       "sourceName": "Tele-MANAS (Ministry of Health)",
       "sourceUrl": "https://telemanas.mohfw.gov.in/",
       "lastChecked": "2026-08-29"
@@ -102,6 +143,12 @@
       "languages": ["German"],
       "notes": "Free, anonymous. Also 0800 111 0 222 and 116 123.",
       "emergency": "112",
+      "chatUrl": "https://www.telefonseelsorge.de/online-beratung/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Nummer gegen Kummer", "phone": "116 111", "notes": "For children/youth, Mon–Sat 2pm–8pm" },
+        { "name": "Krisenchat", "phone": null, "notes": "24/7 chat for under 25 at krisenchat.de" }
+      ],
       "sourceName": "TelefonSeelsorge",
       "sourceUrl": "https://www.telefonseelsorge.de/",
       "lastChecked": "2026-08-29"
@@ -115,6 +162,12 @@
       "languages": ["French"],
       "notes": "Free national suicide-prevention line (Ministère de la Santé).",
       "emergency": "112",
+      "chatUrl": "https://www.3114.fr/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Suicide Écoute", "phone": "01 45 39 40 00", "notes": "24/7, also chat at suicide-ecoute.org" },
+        { "name": "SOS Amitié", "phone": "09 72 39 40 50", "notes": "Daily 1pm–11pm" }
+      ],
       "sourceName": "3114",
       "sourceUrl": "https://3114.fr/",
       "lastChecked": "2026-08-29"
@@ -128,6 +181,12 @@
       "languages": ["Spanish"],
       "notes": "Free, confidential suicide-prevention line from the Ministry of Health.",
       "emergency": "112",
+      "chatUrl": "https://www.sanidad.gob.es/ciudadanos/proteccionSalud/prevencionSuicidio/linea024.htm",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Teléfono de la Esperanza", "phone": "717 003 717", "notes": "24/7 emotional support" },
+        { "name": "Cruz Roja Escucha", "phone": "900 107 917", "notes": "Daily 10am–10pm" }
+      ],
       "sourceName": "Ministerio de Sanidad",
       "sourceUrl": "https://www.sanidad.gob.es/",
       "lastChecked": "2026-08-29"
@@ -141,6 +200,12 @@
       "languages": ["Italian"],
       "notes": "Volunteer listening line, open every afternoon and evening. Check the site for current hours.",
       "emergency": "112",
+      "chatUrl": "https://www.telefonoamico.it/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Samaritans Italia", "phone": "06 77208977", "notes": "Daily 1pm–10pm" },
+        { "name": "Progetto Itaca", "phone": "800 995 588", "notes": "Mon–Fri 9am–6pm" }
+      ],
       "sourceName": "Telefono Amico",
       "sourceUrl": "https://www.telefonoamico.it/",
       "lastChecked": "2026-08-29"
@@ -154,6 +219,12 @@
       "languages": ["Dutch"],
       "notes": "National suicide-prevention line and chat. 0800-0113 toll-free also available.",
       "emergency": "112",
+      "chatUrl": "https://www.113.nl/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "De Luisterlijn", "phone": "088 0767 000", "notes": "24/7 listening line" },
+        { "name": "Kindertelefoon", "phone": "116 111", "notes": "For children, daily 11am–11pm" }
+      ],
       "sourceName": "113 Zelfmoordpreventie",
       "sourceUrl": "https://www.113.nl/",
       "lastChecked": "2026-08-29"
@@ -167,6 +238,12 @@
       "languages": ["Japanese"],
       "notes": "Tokyo Lifeline Phone 03-3264-4343 (24-hour). National toll-free number is 0120-783-556.",
       "emergency": "110 (police) / 119 (ambulance)",
+      "chatUrl": null,
+      "textNumber": null,
+      "fallback": [
+        { "name": "Befrienders Japan", "phone": null, "notes": "Email support at befrienders.jp" },
+        { "name": "TELL Lifeline", "phone": "03-5774-0992", "notes": "Daily 9am–11pm, English support" }
+      ],
       "sourceName": "Tokyo Inochi no Denwa",
       "sourceUrl": "https://www.indt.jp/",
       "lastChecked": "2026-08-29"
@@ -180,6 +257,12 @@
       "languages": ["Korean"],
       "notes": "Ministry of Health and Welfare crisis line.",
       "emergency": "112 (police) / 119 (fire/ambulance)",
+      "chatUrl": "https://www.spckorea.or.kr/counseling/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "LifeLine Korea", "phone": "1588-9191", "notes": "24/7 counseling" },
+        { "name": "Mental Health Center", "phone": "1577-0199", "notes": "Local center referral" }
+      ],
       "sourceName": "Korea Foundation for Suicide Prevention",
       "sourceUrl": "http://www.spckorea.or.kr/",
       "lastChecked": "2026-08-29"
@@ -193,6 +276,12 @@
       "languages": ["English", "Mandarin", "Malay", "Tamil"],
       "notes": "24-hour hotline 1767. Also CareText (SMS) at 9151 1767, Mon-Sun.",
       "emergency": "995 (ambulance) / 999 (police)",
+      "chatUrl": "https://www.sos.org.sg/get-help/chat/",
+      "textNumber": "9151 1767",
+      "fallback": [
+        { "name": "Institute of Mental Health", "phone": "6389-2222", "notes": "24/7 emergency helpline" },
+        { "name": "Care Corner Counselling", "phone": "1800 353 5800", "notes": "Mandarin, Mon–Fri 10am–10pm" }
+      ],
       "sourceName": "Samaritans of Singapore",
       "sourceUrl": "https://www.sos.org.sg/",
       "lastChecked": "2026-08-29"
@@ -206,6 +295,12 @@
       "languages": ["Hebrew", "English", "Russian", "Arabic"],
       "notes": "Free 24/7 emotional support line. English option available; check site for details.",
       "emergency": "100 (police) / 101 (ambulance)",
+      "chatUrl": "https://en.eran.org.il/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "SAHAR", "phone": "1202", "notes": "Arabic, daily 10am–midnight" },
+        { "name": "Natal", "phone": "1-800-363-363", "notes": "Trauma support, 24/7" }
+      ],
       "sourceName": "ERAN",
       "sourceUrl": "https://en.eran.org.il/",
       "lastChecked": "2026-08-29"
@@ -219,6 +314,12 @@
       "languages": ["English"],
       "notes": "Free toll-free 24/7 crisis line. Text 31393.",
       "emergency": "10111 (police) / 10177 (ambulance)",
+      "chatUrl": "https://www.sadag.org/",
+      "textNumber": "31393",
+      "fallback": [
+        { "name": "Lifeline South Africa", "phone": "0861 322 322", "notes": "24/7 counselling" },
+        { "name": "Childline SA", "phone": "116 111", "notes": "For children" }
+      ],
       "sourceName": "SADAG",
       "sourceUrl": "https://www.sadag.org/",
       "lastChecked": "2026-08-29"
@@ -232,6 +333,12 @@
       "languages": ["English", "Hausa"],
       "notes": "Multiple lines: 09080217555 (9mobile), 09034400009 (MTN), 08142241007 (Hausa), 08000787746 (toll-free). In emergency call 112.",
       "emergency": "112",
+      "chatUrl": null,
+      "textNumber": null,
+      "fallback": [
+        { "name": "Lagos Lifeline", "phone": "0909 000 0999", "notes": "24/7" },
+        { "name": "MANI", "phone": null, "notes": "WhatsApp +234 809 111 6264" }
+      ],
       "sourceName": "SURPIN",
       "sourceUrl": "https://www.nigerianmentalhealth.org/helplines",
       "lastChecked": "2026-08-29"
@@ -245,6 +352,12 @@
       "languages": ["English", "Swahili"],
       "notes": "Call +254 722 178 177. Also +254 700 000 148. See site for current hours.",
       "emergency": "999 / 112",
+      "chatUrl": "https://befrienderske.org/contact/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Kenya Red Cross", "phone": "1199", "notes": "24/7 emergency" },
+        { "name": "Nimefika", "phone": "0800 720 720", "notes": "Youth helpline" }
+      ],
       "sourceName": "Befrienders Kenya",
       "sourceUrl": "https://befrienderske.org/",
       "lastChecked": "2026-08-29"
@@ -258,6 +371,12 @@
       "languages": ["Portuguese"],
       "notes": "Free 24/7 emotional support by phone, chat or email.",
       "emergency": "190 (police) / 192 (ambulance) / 193 (fire)",
+      "chatUrl": "https://www.cvv.org.br/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "SAMU", "phone": "192", "notes": "Medical emergency" },
+        { "name": "CAPS", "phone": null, "notes": "Local mental health centers (search cvv.org.br)" }
+      ],
       "sourceName": "CVV",
       "sourceUrl": "https://cvv.org.br/",
       "lastChecked": "2026-08-29"
@@ -271,6 +390,12 @@
       "languages": ["Spanish"],
       "notes": "Free government psychological-support line. Also 55 5259 8121. Línea de la Vida: 800 822 3737.",
       "emergency": "911",
+      "chatUrl": null,
+      "textNumber": null,
+      "fallback": [
+        { "name": "Línea de la Vida", "phone": "800 822 3737", "notes": "24/7 suicide prevention" },
+        { "name": "SIMISAE", "phone": "800 911 3232", "notes": "Women's violence support" }
+      ],
       "sourceName": "SAPTEL",
       "sourceUrl": "https://www.saptel.org.mx/",
       "lastChecked": "2026-08-29"

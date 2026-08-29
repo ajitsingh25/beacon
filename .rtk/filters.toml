@@ -1,0 +1,26 @@
+# Project-local RTK filters for Beacon (stories).
+# These override user-global and built-in filters for this repo only.
+# Docs: https://github.com/rtk-ai/rtk#custom-filters
+schema_version = 1
+
+# Beacon's only local "build/test" command is the data validator.
+[filters.validate-js]
+description = "Compact node scripts/validate.js output (strip blank lines, cap at 40 lines)"
+match_command = "^node\\s+scripts/validate\\.js"
+strip_ansi = true
+strip_lines_matching = ["^\\s*$", "^$"]
+max_lines = 40
+on_empty = "validate.js: ok"
+
+[[tests.validate-js]]
+name = "blank lines stripped"
+input = "\nValidation started:\n\n\nAll checks passed.\n\n"
+expected = "Validation started:\nAll checks passed."
+
+[[tests.validate-js]]
+name = "empty output becomes ok message"
+input = "\n\n\n"
+expected = "validate.js: ok"
+
+# Strip git status noise (nothing to see when clean) and commit noise is handled
+# by the built-in git/gh wrappers, so we keep this file minimal on purpose.

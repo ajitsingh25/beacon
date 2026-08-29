@@ -7,6 +7,7 @@ let all = [];
 let filtered = [];
 let activeLanguages = new Set();
 let pinnedIso = null;
+let activeCountryHash = null;
 
 // ITU-T E.164 country calling codes for countries in our dataset
 const COUNTRY_CALLING_CODES = {
@@ -69,6 +70,9 @@ function svg(iconName) {
     check: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
     copy: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`,
     copied: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>`,
+    chat: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+    message: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>`,
+    alt: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
   };
   return icons[iconName] || "";
 }
@@ -154,6 +158,115 @@ function createMetaItem(iconName, text) {
   return item;
 }
 
+function createAltRow(entry, alt) {
+  const row = el("div", "phone-row alt");
+  row.style.display = "flex";
+  row.style.alignItems = "center";
+  row.style.gap = "var(--space-3)";
+  row.style.flexWrap = "wrap";
+  row.style.paddingTop = "var(--space-2)";
+  row.style.borderTop = "1px solid var(--color-border)";
+  row.style.marginTop = "var(--space-1)";
+
+  const labelEl = el("span", "phone-label alt", "If busy, try:");
+  row.appendChild(labelEl);
+
+  const link = el("a", "phone-link alt", alt.phone);
+  link.href = alt.phone ? telLink(alt.phone) : "#";
+  link.setAttribute("aria-label", "Fallback: " + alt.name + (alt.phone ? " " + alt.phone : ""));
+  link.style.fontSize = "var(--font-size-base)";
+  link.style.fontWeight = "var(--font-weight-medium)";
+  link.style.color = "var(--color-accent)";
+  row.appendChild(link);
+
+  if (alt.notes) {
+    const notes = el("span", "phone-label alt", alt.notes);
+    notes.style.color = "var(--color-ink-muted)";
+    notes.style.fontSize = "var(--font-size-sm)";
+    row.appendChild(notes);
+  }
+
+  if (alt.phone) {
+    const copyBtn = el("button", "phone-copy", "");
+    copyBtn.type = "button";
+    copyBtn.innerHTML = svg("copy");
+    copyBtn.setAttribute("aria-label", "Copy fallback number");
+    copyBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      copyToClipboard(alt.phone, copyBtn);
+    });
+    row.appendChild(copyBtn);
+  }
+
+  return row;
+}
+
+function createChatRow(entry) {
+  if (!entry.chatUrl && !entry.textNumber) return null;
+
+  const row = el("div", "phone-row chat-row");
+  row.style.display = "flex";
+  row.style.alignItems = "center";
+  row.style.gap = "var(--space-3)";
+  row.style.flexWrap = "wrap";
+  row.style.paddingTop = "var(--space-2)";
+  row.style.borderTop = "1px solid var(--color-border)";
+  row.style.marginTop = "var(--space-1)";
+
+  if (entry.chatUrl) {
+    const labelEl = el("span", "phone-label", "Chat");
+    row.appendChild(labelEl);
+
+    const link = el("a", "phone-link chat", "Open chat");
+    link.href = entry.chatUrl;
+    link.target = "_blank";
+    link.rel = "noopener";
+    link.setAttribute("aria-label", "Open web chat");
+    link.style.fontSize = "var(--font-size-base)";
+    link.style.fontWeight = "var(--font-weight-medium)";
+    link.style.color = "var(--color-brand)";
+    row.appendChild(link);
+
+    const copyBtn = el("button", "phone-copy", "");
+    copyBtn.type = "button";
+    copyBtn.innerHTML = svg("copy");
+    copyBtn.setAttribute("aria-label", "Copy chat URL");
+    copyBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      copyToClipboard(entry.chatUrl, copyBtn);
+    });
+    row.appendChild(copyBtn);
+  }
+
+  if (entry.textNumber) {
+    const labelEl = el("span", "phone-label", "Text");
+    row.appendChild(labelEl);
+
+    const link = el("a", "phone-link text", entry.textNumber);
+    link.href = telLink(entry.textNumber);
+    link.setAttribute("aria-label", "Text number: " + entry.textNumber);
+    link.style.fontSize = "var(--font-size-base)";
+    link.style.fontWeight = "var(--font-weight-semibold)";
+    link.style.color = "var(--color-accent)";
+    row.appendChild(link);
+
+    const copyBtn = el("button", "phone-copy", "");
+    copyBtn.type = "button";
+    copyBtn.innerHTML = svg("copy");
+    copyBtn.setAttribute("aria-label", "Copy text number");
+    copyBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      copyToClipboard(entry.textNumber, copyBtn);
+    });
+    row.appendChild(copyBtn);
+  }
+
+  return row;
+}
+
 function card(entry) {
   const cardEl = el("article", "helpline-card");
 
@@ -188,6 +301,17 @@ function card(entry) {
 
   if (entry.emergency) {
     phonesWrap.appendChild(createPhoneRow(entry, entry.emergency, "Emergency number", false, true));
+  }
+
+  // Chat / Text row
+  const chatRow = createChatRow(entry);
+  if (chatRow) phonesWrap.appendChild(chatRow);
+
+  // Fallback numbers
+  if (entry.fallback && entry.fallback.length) {
+    for (const alt of entry.fallback) {
+      phonesWrap.appendChild(createAltRow(entry, alt));
+    }
   }
 
   cardEl.appendChild(phonesWrap);
@@ -268,6 +392,7 @@ function countrySection(entries) {
   }
 
   section.appendChild(header);
+  section.dataset.iso = firstEntry.iso;
 
   const grid = el("div", "card-grid");
   grid.style.display = "grid";
@@ -417,6 +542,116 @@ function initPinnedDismiss() {
   });
 }
 
+function handleHashRouting() {
+  const hash = window.location.hash.slice(1);
+  if (hash) {
+    const iso = hash.toUpperCase();
+    if (all.some((e) => e.iso === iso)) {
+      activeCountryHash = iso;
+      const input = document.getElementById("search-input");
+      input.value = iso;
+      applyFilters();
+      // Scroll to country section
+      setTimeout(() => {
+        const section = document.querySelector('[data-iso="' + iso + '"]');
+        if (section) section.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }
+}
+
+function updateHashFromPinned() {
+  if (pinnedIso && !activeCountryHash) {
+    window.history.replaceState(null, "", "#" + pinnedIso);
+  }
+}
+
+function handlePrintWallet() {
+  const country = pinnedIso || activeCountryHash;
+  if (!country) {
+    alert("Please select a country first (tap a country or allow location detection).");
+    return;
+  }
+  const entries = all.filter((e) => e.iso === country);
+  if (!entries.length) return;
+
+  const printWindow = window.open("", "_blank");
+  printWindow.document.write(generateWalletHTML(entries[0].country, entries));
+  printWindow.document.close();
+  printWindow.focus();
+  printWindow.print();
+}
+
+function generateWalletHTML(countryName, entries) {
+  const primary = entries[0];
+  const intl = toInternational(primary.iso, primary.phone);
+  const fallback = primary.fallback || [];
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beacon Wallet Card — ${countryName}</title>
+<style>
+@page { margin: 12mm; size: auto; }
+* { box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11pt; line-height: 1.4; color: #0f172a; margin: 0; padding: 0; }
+.wallet { max-width: 85mm; margin: 0 auto; padding: 12px; border: 2px solid #0d9488; border-radius: 8px; }
+.header { text-align: center; margin-bottom: 12px; border-bottom: 2px solid #0d9488; padding-bottom: 8px; }
+.header h1 { margin: 0; font-size: 18pt; font-weight: 800; color: #0d9488; }
+.header .country { margin: 4px 0 0; font-size: 10pt; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; }
+.section { margin-top: 10px; }
+.section-title { font-size: 8pt; font-weight: 700; color: #0d9488; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.section-title::before { content: ""; width: 8px; height: 8px; background: #0d9488; border-radius: 2px; }
+.phone-row { display: flex; justify-content: space-between; align-items: baseline; padding: 6px 0; border-bottom: 1px dashed #cbd5e1; font-family: "JetBrains Mono", monospace; font-size: 11pt; }
+.phone-row:last-child { border-bottom: none; }
+.phone-label { font-family: inherit; font-size: 9pt; color: #475569; font-weight: 600; }
+.phone-number { color: #0f172a; font-weight: 700; text-decoration: none; }
+.phone-number.emergency { color: #dc2626; }
+.phone-number.chat { color: #0d9488; }
+.phone-number.alt { color: #f97316; }
+.note { font-size: 8pt; color: #64748b; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e2e8f0; }
+.source { font-size: 7pt; color: #94a3b8; margin-top: 10px; text-align: center; }
+.disclaimer { font-size: 7pt; color: #dc2626; margin-top: 8px; text-align: center; font-weight: 600; }
+@media print { .no-print { display: none !important; } body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+</head>
+<body>
+<div class="wallet">
+  <div class="header">
+    <h1>Beacon</h1>
+    <div class="country">${countryName}</div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Primary</div>
+    <div class="phone-row"><span class="phone-label">Call</span><a class="phone-number" href="tel:${telLink(primary.phone).replace("tel:", "")}">${primary.phone}</a></div>
+    ${intl ? `<div class="phone-row"><span class="phone-label">Intl</span><a class="phone-number" href="tel:${intl.replace(/\s+/g, "")}">${intl}</a></div>` : ""}
+    ${primary.textNumber ? `<div class="phone-row"><span class="phone-label">Text</span><a class="phone-number" href="tel:${telLink(primary.textNumber).replace("tel:", "")}">${primary.textNumber}</a></div>` : ""}
+    ${primary.chatUrl ? `<div class="phone-row"><span class="phone-label">Chat</span><a class="phone-number chat" href="${primary.chatUrl}" target="_blank">Open chat →</a></div>` : ""}
+  </div>
+
+  <div class="section">
+    <div class="section-title">Emergency</div>
+    <div class="phone-row"><span class="phone-label">${primary.emergency.includes("/") ? "Emergency" : "Police/Ambulance"}</span><a class="phone-number emergency" href="tel:${telLink(primary.emergency.split("/")[0].trim()).replace("tel:", "")}">${primary.emergency}</a></div>
+  </div>
+
+  ${fallback.length ? `
+  <div class="section">
+    <div class="section-title">If busy, try</div>
+    ${fallback.map(f => `<div class="phone-row"><span class="phone-label">${f.name}</span>${f.phone ? `<a class="phone-number alt" href="tel:${telLink(f.phone).replace("tel:", "")}">${f.phone}</a>` : `<span class="phone-number alt">${f.notes || "See notes"}</span>`}</div>`).join("")}
+  </div>
+  ` : ""}
+
+  <div class="note">Data verified ${primary.lastChecked}. Sources: ${entries.map(e => e.sourceName).join(", ")}.</div>
+  <p class="disclaimer">Not a substitute for emergency services. In immediate danger, call your local emergency number.</p>
+  <p class="source">beacon.help · Crisis helpline finder</p>
+</div>
+</body>
+</html>`;
+}
+
 function detectCountryFromTimezone() {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
@@ -466,12 +701,17 @@ async function initApp() {
     all = data.helplines;
     filtered = all;
 
+    injectJSONLD();
     initPinnedCountry();
+    handleHashRouting();
+    window.addEventListener("hashchange", handleHashRouting);
     render(all);
     initSearch();
     initQuickExit();
     initPinnedDismiss();
+    initPrintButton();
     loadStatus();
+    updateHashFromPinned();
   } catch (err) {
     const container = document.getElementById("country-list");
     container.innerHTML = `
@@ -482,6 +722,58 @@ async function initApp() {
       </div>
     `;
     console.error(err);
+  }
+}
+
+function injectJSONLD() {
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  const items = all.map((e) => ({
+    "@type": "EmergencyService",
+    "name": e.name,
+    "telephone": e.phone,
+    "url": e.sourceUrl,
+    "areaServed": { "@type": "Country", "name": e.country },
+    "availableLanguage": e.languages,
+    "hoursAvailable": e.hours,
+    "description": e.notes,
+  }));
+  script.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Beacon Crisis Helplines",
+    "description": "Verified crisis and suicide-prevention helplines by country",
+    "itemListElement": items.map((item, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "item": item,
+    })),
+  });
+  document.head.appendChild(script);
+}
+
+function initPrintButton() {
+  const footer = document.querySelector(".footer-inner");
+  if (!footer) return;
+
+  const printBtn = document.createElement("a");
+  printBtn.className = "contribute-link no-print";
+  printBtn.href = "#";
+  printBtn.innerHTML = `
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="6 9 6 21 18 21 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><line x1="12" y1="3" x2="12" y2="9"/>
+    </svg>
+    Print wallet card
+  `;
+  printBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    handlePrintWallet();
+  });
+
+  const contributeP = footer.querySelector(".contribute");
+  if (contributeP) {
+    contributeP.insertAdjacentElement("beforebegin", printBtn);
+    contributeP.style.marginTop = "var(--space-4)";
   }
 }
 

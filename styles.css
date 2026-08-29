@@ -801,3 +801,51 @@ main { flex: 1; padding: var(--space-10) var(--space-4) var(--space-16); }
 }
 
 .hidden { display: none !important; }
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  .hero,
+  .search-form,
+  .pinned-banner,
+  .language-filter,
+  .quick-exit,
+  .no-print,
+  .footer {
+    display: none !important;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .helpline-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--color-border);
+  }
+
+  .helpline-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .phone-copy {
+    display: none;
+  }
+
+  .helpline-phones .phone-row {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .helpline-phones .phone-row:last-child {
+    border-bottom: none;
+  }
+}
