@@ -6,6 +6,7 @@ const statusUrl = "data/status.json";
 let all = [];
 let filtered = [];
 let activeLanguages = new Set();
+let activeCategories = new Set();
 let pinnedIso = null;
 let activeCountryHash = null;
 
@@ -15,6 +16,19 @@ const COUNTRY_CALLING_CODES = {
   DE: "49", FR: "33", ES: "34", IT: "39", NL: "31", JP: "81",
   KR: "82", SG: "65", IL: "972", ZA: "27", NG: "234", KE: "254",
   BR: "55", MX: "52",
+};
+
+const CATEGORIES = ["suicide", "domestic-violence", "child-protection", "sexual-assault", "substance-use", "human-trafficking", "lgbtq", "veterans"];
+
+const CATEGORY_LABELS = {
+  "suicide": "Suicide",
+  "domestic-violence": "Domestic Violence",
+  "child-protection": "Child Protection",
+  "sexual-assault": "Sexual Assault",
+  "substance-use": "Substance Use",
+  "human-trafficking": "Human Trafficking",
+  "lgbtq": "LGBTQ+",
+  "veterans": "Veterans"
 };
 
 // Timezone → ISO mapping for auto-detect (no permission needed)
@@ -465,14 +479,21 @@ function languageMatches(entry) {
   return entry.languages.some((l) => activeLanguages.has(l.toLowerCase()));
 }
 
+function categoryMatches(entry) {
+  if (activeCategories.size === 0) return true;
+  return activeCategories.has(entry.category);
+}
+
 function applyFilters() {
   const term = document.getElementById("search-input").value.trim().toLowerCase();
   let list = all;
   if (term) list = list.filter((e) => matchEntry(e, term));
   list = list.filter(languageMatches);
+  list = list.filter(categoryMatches);
   filtered = list;
   render(list);
   renderLanguageChips();
+  renderCategoryChips();
 }
 
 function renderLanguageChips() {
@@ -498,6 +519,36 @@ function renderLanguageChips() {
     chip.addEventListener("click", () => {
       if (activeLanguages.has(lang)) activeLanguages.delete(lang);
       else activeLanguages.add(lang);
+      applyFilters();
+    });
+    container.appendChild(chip);
+  }
+}
+
+function renderCategoryChips() {
+  const container = document.getElementById("category-chips");
+  if (!container) return;
+
+  const categoryCounts = {};
+  for (const entry of filtered) {
+    const cat = entry.category;
+    if (cat) {
+      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    }
+  }
+
+  container.innerHTML = "";
+  // Show only categories that have entries in the filtered set, in the defined order
+  for (const cat of CATEGORIES) {
+    if (!(cat in categoryCounts) || categoryCounts[cat] === 0) continue;
+    const active = activeCategories.has(cat);
+    const chip = el("button", "cat-chip" + (active ? " active" : ""));
+    chip.type = "button";
+    chip.setAttribute("aria-pressed", active);
+    chip.innerHTML = `${CATEGORY_LABELS[cat]} <span class="cat-chip-count">${categoryCounts[cat]}</span>`;
+    chip.addEventListener("click", () => {
+      if (activeCategories.has(cat)) activeCategories.delete(cat);
+      else activeCategories.add(cat);
       applyFilters();
     });
     container.appendChild(chip);

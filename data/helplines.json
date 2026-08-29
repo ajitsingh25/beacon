@@ -5,6 +5,8 @@
     {
       "country": "United States",
       "iso": "US",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "chat", "text", "veteran"],
       "name": "988 Suicide & Crisis Lifeline",
       "phone": "988",
       "hours": "24/7",
@@ -24,6 +26,8 @@
     {
       "country": "Canada",
       "iso": "CA",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "chat", "text", "french"],
       "name": "988 Suicide Crisis Helpline",
       "phone": "988",
       "hours": "24/7",
@@ -43,6 +47,8 @@
     {
       "country": "Canada",
       "iso": "CA",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "text"],
       "name": "Talk Suicide (Hope for Wellness)",
       "phone": "1-833-456-4566",
       "hours": "24/7",
@@ -61,6 +67,8 @@
     {
       "country": "United Kingdom",
       "iso": "GB",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "free", "email"],
       "name": "Samaritans",
       "phone": "116 123",
       "hours": "24/7",
@@ -80,6 +88,8 @@
     {
       "country": "Australia",
       "iso": "AU",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "support"],
       "name": "Lifeline",
       "phone": "13 11 14",
       "hours": "24/7",
@@ -99,6 +109,8 @@
     {
       "country": "New Zealand",
       "iso": "NZ",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "text", "maori"],
       "name": "1737 Need to Talk?",
       "phone": "1737",
       "hours": "24/7",
@@ -118,6 +130,8 @@
     {
       "country": "India",
       "iso": "IN",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "toll-free", "government"],
       "name": "Tele-MANAS",
       "phone": "14416",
       "hours": "24/7",
@@ -137,6 +151,8 @@
     {
       "country": "Germany",
       "iso": "DE",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "free", "anonymous", "chat"],
       "name": "TelefonSeelsorge",
       "phone": "0800 111 0 111",
       "hours": "24/7",
@@ -156,6 +172,8 @@
     {
       "country": "France",
       "iso": "FR",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "free", "national"],
       "name": "3114",
       "phone": "3114",
       "hours": "24/7",
@@ -175,6 +193,8 @@
     {
       "country": "Spain",
       "iso": "ES",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "free", "confidential", "ministry"],
       "name": "Línea 024",
       "phone": "024",
       "hours": "24/7",
@@ -194,6 +214,8 @@
     {
       "country": "Italy",
       "iso": "IT",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "not 24/7", "volunteer", "listening", "afternoon"],
       "name": "Telefono Amico Italia",
       "phone": "199 284 284",
       "hours": "Not 24/7",
@@ -213,6 +235,8 @@
     {
       "country": "Netherlands",
       "iso": "NL",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "chat", "toll-free"],
       "name": "113 Zelfmoordpreventie",
       "phone": "0900-0113",
       "hours": "24/7",
@@ -232,6 +256,8 @@
     {
       "country": "Japan",
       "iso": "JP",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "japanese", "toll-free"],
       "name": "Inochi no Denwa (生命の電話)",
       "phone": "03-3264-4343",
       "hours": "24/7",
@@ -251,6 +277,8 @@
     {
       "country": "South Korea",
       "iso": "KR",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "korean", "ministry"],
       "name": "Suicide Prevention Center 1393",
       "phone": "1393",
       "hours": "24/7",
@@ -270,9 +298,11 @@
     {
       "country": "Singapore",
       "iso": "SG",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "multilingual", "chat", "sms"],
       "name": "Samaritans of Singapore (SOS)",
       "phone": "1767",
-      "hours": "24/7",
+      "hours": "20/7",
       "languages": ["English", "Mandarin", "Malay", "Tamil"],
       "notes": "24-hour hotline 1767. Also CareText (SMS) at 9151 1767, Mon-Sun.",
       "emergency": "995 (ambulance) / 999 (police)",
@@ -289,6 +319,8 @@
     {
       "country": "Israel",
       "iso": "IL",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "hebrew", "english", "russian", "arabic"],
       "name": "ERAN",
       "phone": "1201",
       "hours": "24/7",
@@ -308,6 +340,8 @@
     {
       "country": "South Africa",
       "iso": "ZA",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "free", "toll-free"],
       "name": "SADAG Suicide Crisis Line",
       "phone": "0800 567 567",
       "hours": "24/7",
@@ -327,6 +361,8 @@
     {
       "country": "Nigeria",
       "iso": "NG",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "office hours", "english", "hausa", "emergency"],
       "name": "SURPIN Mental Health Support",
       "phone": "09080217555",
       "hours": "Office hours",
@@ -346,6 +382,8 @@
     {
       "country": "Kenya",
       "iso": "KE",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "office hours", "english", "swahili"],
       "name": "Befrienders Kenya",
       "phone": "+254 722 178 177",
       "hours": "Office hours",
@@ -365,6 +403,8 @@
     {
       "country": "Brazil",
       "iso": "BR",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "portuguese", "emotional support"],
       "name": "CVV (Centro de Valorização da Vida)",
       "phone": "188",
       "hours": "24/7",
@@ -384,6 +424,8 @@
     {
       "country": "Mexico",
       "iso": "MX",
+      "category": "suicide",
+      "tags": ["crisis", "helpline", "24/7", "spanish", "government"],
       "name": "SAPTEL",
       "phone": "800 472 7835",
       "hours": "24/7",
@@ -398,6 +440,109 @@
       ],
       "sourceName": "SAPTEL",
       "sourceUrl": "https://www.saptel.org.mx/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United States",
+      "iso": "US",
+      "category": "domestic-violence",
+      "tags": ["dv", "ipv", "24/7", "safety-planning", "multilingual", "shelter"],
+      "name": "National Domestic Violence Hotline",
+      "phone": "800-799-7233",
+      "hours": "24/7",
+      "languages": ["English", "Spanish", "200+ languages via interpreter"],
+      "notes": "Free, confidential support for anyone experiencing domestic violence or intimate partner violence. Includes safety planning, shelter referrals, and legal advocacy. Chat available at thehotline.org.",
+      "emergency": "911",
+      "chatUrl": "https://www.thehotline.org/",
+      "textNumber": "88788",
+      "fallback": [
+        { "name": "The Hotline Chat", "phone": null, "notes": "24/7 chat at thehotline.org" },
+        { "name": "Loveisrespect", "phone": "1-866-331-9474", "notes": "Dating abuse support for youth" }
+      ],
+      "sourceName": "National Domestic Violence Hotline",
+      "sourceUrl": "https://www.thehotline.org/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United Kingdom",
+      "iso": "GB",
+      "category": "domestic-violence",
+      "tags": ["dv", "ipv", "24/7", "free", "confidential", "refuge"],
+      "name": "Women's Aid",
+      "phone": "0808 200 247",
+      "hours": "24/7",
+      "languages": ["English"],
+      "notes": "Freephone 0808 200 247 for support if you're experiencing domestic violence. Includes refuge information and advocacy. Website: womensaid.org.uk",
+      "emergency": "999",
+      "chatUrl": "https://www.womensaid.org.uk/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Refuge 24-Hour National Domestic Abuse Helpline", "phone": "0808 200 247", "notes": "Same number as Women's Aid" },
+        { "name": "Police Scotland", "phone": "101", "notes": "For non-emergency domestic abuse reports in Scotland" }
+      ],
+      "sourceName": "Women's Aid",
+      "sourceUrl": "https://www.womensaid.org.uk/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Germany",
+      "iso": "DE",
+      "category": "child-protection",
+      "tags": ["child", "youth", "116", "24/7", "kinderschutz", "kihi"],
+      "name": "Nummer gegen Notruf 116 111",
+      "phone": "116 111",
+      "hours": "24/7",
+      "languages": ["German"],
+      "notes": "German children's helpline (Nummer gegen Notruf). Part of Child Helpline International. Free, 24/7 support for children and youth in crisis.",
+      "emergency": "112",
+      "chatUrl": "https://www.kinderschutz.de/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Nummer gegen Kummer", "phone": "116 111", "notes": "For children/youth, Mon-Sat 2pm-8pm" }
+      ],
+      "sourceName": "Kinderschutz Deutschland",
+      "sourceUrl": "https://www.kinderschutz.de/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United Kingdom",
+      "iso": "GB",
+      "category": "sexual-assault",
+      "tags": ["sa", "rape", "crisis", "24/7", "free", "counselling"],
+      "name": "Rape Crisis England & Wales",
+      "phone": "0808 802 9999",
+      "hours": "24/7 answering machine",
+      "languages": ["English"],
+      "notes": "Rape Crisis offers free, confidential support for anyone who has experienced sexual violence at any time in their life. 0808 802 9999 has an answering machine service outside standard hours. Website: rapecrisis.org.uk",
+      "emergency": "999",
+      "chatUrl": "https://rapecrisis.org.uk/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Survivors UK", "phone": "020 3322 1860", "notes": "For men and non-binary survivors, web chat available" },
+        { "name": "Police", "phone": "999", "notes": "If immediate danger or recent incident" }
+      ],
+      "sourceName": "Rape Crisis England & Wales",
+      "sourceUrl": "https://rapecrisis.org.uk/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Brazil",
+      "iso": "BR",
+      "category": "sexual-assault",
+      "tags": ["sa", "rape", "24/7", "portuguese", "support"],
+      "name": "Central de Atendimento à Mulher - Ligue 180",
+      "phone": "180",
+      "hours": "24/7",
+      "languages": ["Portuguese"],
+      "notes": "National domestic violence and sexual assault helpline from Ministério da Mulheres. Ligue 180 for support and guidance. Also handles cases of sexual violence against women.",
+      "emergency": "180",
+      "chatUrl": "https://www.gov.br/mulheres/pt-br/acentos-e-canais-de-atendimento/central-de-atendimento-a-mulher",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Delegacia da Mulher Moreira da Silva", "phone": "3003-0170", "notes": "Specialized police station for women in SP" }
+      ],
+      "sourceName": "Ministério da Mulheres",
+      "sourceUrl": "https://www.gov.br/mulheres/pt-br/acentos-e-canais-de-atendimento/central-de-atendimento-a-mulher",
       "lastChecked": "2026-08-29"
     }
   ]
