@@ -669,6 +669,153 @@
       "sourceName": "LSBT* Berlin",
       "sourceUrl": "https://findahelpline.com/countries/de/topics/gender-sexual-identity",
       "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "suicide",
+      "tags": ["crisis", "adults", "24/7", "free", "anonymous"],
+      "name": "Linka první psychické pomoci",
+      "phone": "116 123",
+      "hours": "24/7",
+      "languages": ["Czech", "Slovak"],
+      "notes": "Free, anonymous, nonstop crisis support for adults (18+) in psychological crisis in Czech. Operated by Cesta z krize. Help with anxiety, depression, isolation, trauma, relationship problems and suicidal thoughts. Chat available; closed 20 minutes before chat ends.",
+      "emergency": "112",
+      "chatUrl": "http://linkapsychickepomoci.cz/chat",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Linka bezpečí", "phone": "116 111", "notes": "For children and students up to 26, free 24/7" },
+        { "name": "Pražská linka důvěry", "phone": "222 580 697", "notes": "24/7 crisis line for everyone" }
+      ],
+      "sourceName": "Cesta z krize",
+      "sourceUrl": "http://linkapsychickepomoci.cz/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "child-protection",
+      "tags": ["child", "youth", "students", "24/7", "free", "116"],
+      "name": "Linka bezpečí",
+      "phone": "116 111",
+      "hours": "24/7",
+      "languages": ["Czech"],
+      "notes": "Free, anonymous, nonstop helpline for children, teenagers and students up to 26 in the Czech Republic. Support for crisis, suicidal thoughts, school, family and relationship problems, abuse and bullying. Email and chat also available.",
+      "emergency": "112",
+      "chatUrl": "https://www.linkabezpeci.cz/chat",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Linka první psychické pomoci", "phone": "116 123", "notes": "For adults 18+, free 24/7" },
+        { "name": "Linka pro rodinu a školu", "phone": "116 000", "notes": "For parents, relatives and teachers, free 24/7" }
+      ],
+      "sourceName": "Linka bezpečí, z.s.",
+      "sourceUrl": "https://www.linkabezpeci.cz/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "child-protection",
+      "tags": ["child", "parents", "teachers", "school", "24/7", "free", "116"],
+      "name": "Linka pro rodinu a školu",
+      "phone": "116 000",
+      "hours": "24/7",
+      "languages": ["Czech"],
+      "notes": "Free, nonstop line for adults concerned about an at-risk child — parents, relatives, teachers, school staff and anyone who works with children. Run by Cesta z krize. Help with bullying, isolation, mental health, self-harm and missing children.",
+      "emergency": "112",
+      "chatUrl": "https://linkaztracenedite.cz/chat/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Linka bezpečí", "phone": "116 111", "notes": "For children and students up to 26, free 24/7" },
+        { "name": "Linka první psychické pomoci", "phone": "116 123", "notes": "For adults 18+, free 24/7" }
+      ],
+      "sourceName": "Cesta z krize",
+      "sourceUrl": "http://linkaztracenedite.cz/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "suicide",
+      "tags": ["crisis", "důvěra", "trust-line", "24/7", "chat"],
+      "name": "Pražská linka důvěry",
+      "phone": "222 580 697",
+      "hours": "24/7",
+      "languages": ["Czech"],
+      "notes": "24/7 nonstop crisis and trust line (Pražská linka důvěry) for everyone in the Czech Republic, provided by Centrum sociálních služeb Praha. Also offers chat counselling; handles crisis, suicidal thoughts, anxiety, loss and relationship problems.",
+      "emergency": "112",
+      "chatUrl": "https://www.chat-pomoc.cz/#/cs",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Linka první psychické pomoci", "phone": "116 123", "notes": "For adults 18+, free 24/7" },
+        { "name": "Modrá linka", "phone": "608 902 410", "notes": "Nonstop crisis line (Brno)" }
+      ],
+      "sourceName": "Centrum sociálních služeb Praha (CSSP)",
+      "sourceUrl": "https://www.csspraha.cz/prazska-linka-duvery",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "suicide",
+      "tags": ["crisis", "trust-line", "brno", "24/7", "chat"],
+      "name": "Modrá linka",
+      "phone": "608 902 410",
+      "hours": "24/7",
+      "languages": ["Czech", "English"],
+      "notes": "Nonstop crisis and trust line of Modrá linka, z.s. (Brno) for anyone in psychological distress in the Czech Republic. Chat counselling available at chat.modralinka.cz. Secondary contact 731 197 477.",
+      "emergency": "112",
+      "chatUrl": "https://chat.modralinka.cz/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Linka první psychické pomoci", "phone": "116 123", "notes": "For adults 18+, free 24/7" },
+        { "name": "Pražská linka důvěry", "phone": "222 580 697", "notes": "24/7 crisis line for everyone" }
+      ],
+      "sourceName": "Modrá linka, z.s.",
+      "sourceUrl": "https://www.modralinka.cz/sluzby/linka-duvery",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "domestic-violence",
+      "tags": ["dv", "crime-victims", "victim-support", "24/7", "free", "116"],
+      "name": "Linka pomoci obětem kriminality a domácího násilí",
+      "phone": "116 006",
+      "hours": "24/7",
+      "languages": ["Czech", "English"],
+      "notes": "Free, nonstop, confidential 116 006 National Support Line for Victims of Crime and Domestic Violence in the Czech Republic, provided by Bílý kruh bezpečí (White Circle of Safety). For victims of crime, domestic violence and bereaved families.",
+      "emergency": "112",
+      "chatUrl": "https://www.bkb.cz/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "ROSA", "phone": "800 60 50 80", "notes": "Crisis support line (ROSALIN) for women victims of domestic violence, free 24/7" },
+        { "name": "Linka první psychické pomoci", "phone": "116 123", "notes": "For adults 18+, free 24/7" }
+      ],
+      "sourceName": "Bílý kruh bezpečí",
+      "sourceUrl": "https://www.bkb.cz/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Czech Republic",
+      "iso": "CZ",
+      "category": "domestic-violence",
+      "tags": ["dv", "women", "114", "116", "24/7", "free"],
+      "name": "ROSA – Linka pro ženy zažívající domácí násilí",
+      "phone": "116 016",
+      "hours": "24/7",
+      "languages": ["Czech", "English", "Ukrainian"],
+      "notes": "Free, nonstop, anonymous support for women experiencing domestic and gender-based violence in the Czech Republic, run by ROSA – centrum pro ženy. Trained female operators, crisis intervention and referral to shelters. ROSALIN alternative line 800 60 50 80 (also nonstop).",
+      "emergency": "112",
+      "chatUrl": "https://www.rosacentrum.cz/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "ROSALIN", "phone": "800 60 50 80", "notes": "Nonstop crisis support and crisis shelter referral for women, free" },
+        { "name": "Bílý kruh bezpečí", "phone": "116 006", "notes": "Line for victims of crime and domestic violence, free 24/7" }
+      ],
+      "sourceName": "ROSA – centrum pro ženy, z.s.",
+      "sourceUrl": "https://www.rosacentrum.cz/",
+      "lastChecked": "2026-08-29"
     }
   ]
 }
