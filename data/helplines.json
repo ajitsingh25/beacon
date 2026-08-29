@@ -606,6 +606,69 @@
       "sourceName": "WEISSER RING e. V.",
       "sourceUrl": "https://weisser-ring.de/english",
       "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United States",
+      "iso": "US",
+      "category": "lgbtq",
+      "tags": ["lgbtq", "youth", "suicide prevention", "24/7", "chat", "text"],
+      "name": "The Trevor Project",
+      "phone": "1-866-488-7386",
+      "hours": "24/7",
+      "languages": ["English"],
+      "notes": "Lesbian, gay, bisexual, transgender, queer & questioning youth suicide prevention and crisis intervention. Call 1-866-488-7386 or chat at thetrevorproject.org. TrevorSpace (thetrevorproject.org/trevorspace) is a moderated social networking community for LGBTQ+ young people ages 13–24.",
+      "emergency": "911",
+      "chatUrl": "https://www.trevorproject.org/get-help/",
+      "textNumber": null,
+      "fallback": [
+        { "name": "TrevorChat", "phone": null, "notes": "Free, confidential chat at thetrevorproject.org" },
+        { "name": "TrevorText", "phone": "678678", "notes": "Text START to 678678 for support" }
+      ],
+      "sourceName": "The Trevor Project",
+      "sourceUrl": "https://www.trevorproject.org/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "United Kingdom",
+      "iso": "GB",
+      "category": "lgbtq",
+      "tags": ["lgbtq", "switchboard", "24/7", "free", "confidential"],
+      "name": "Switchboard LGBT+",
+      "phone": "0800 0119 100",
+      "hours": "Daily 10am–10pm",
+      "languages": ["English"],
+      "notes": "Lesbian, gay, bisexual, trans, non-binary, queer & questioning people. Freephone 0800 0119 100. Webchat available at switchboard.lgbt. Offers information, support and referral on a wide range of topics including coming out, mental health, hate crime and relationships.",
+      "emergency": "999",
+      "chatUrl": "https://switchboard.lgbt/help",
+      "textNumber": null,
+      "fallback": [
+        { "name": "MindOUT", "phone": null, "notes": "LGBTQ+ mental health service" },
+        { "name": "Galop", "phone": "0300 999 0088", "notes": "LGBT+ domestic abuse and sexual violence charity" }
+      ],
+      "sourceName": "Switchboard LGBT+",
+      "sourceUrl": "https://switchboard.lgbt/",
+      "lastChecked": "2026-08-29"
+    },
+    {
+      "country": "Germany",
+      "iso": "DE",
+      "category": "lgbtq",
+      "tags": ["lgbtq", "queer", " 030 443 509 821", "counselling", "german"],
+      "name": "LSBT*-Beratungsstelle Berlin",
+      "phone": "030 443 509 821",
+      "hours": "Mon–Fri 10–16",
+      "languages": ["German", "English"],
+      "notes": "Lesbian, gay, bisexual, trans* and queer counselling service in Berlin. Offers individual counselling, information and referral. Montgomerystraße 9, 10117 Berlin. Montags, donnerstags und freitags zwischen 10 und 16 Uhr erreichbar.",
+      "emergency": "112",
+      "chatUrl": "https://findahelpline.com/countries/de/topics/gender-sexual-identity",
+      "textNumber": null,
+      "fallback": [
+        { "name": "Nummer gegen Kummer", "phone": "116 111", "notes": "For children/youth, Mon-Sat 2pm-8pm" },
+        { "name": "Queer Refuge Berlin", "phone": null, "notes": "Online support and community" }
+      ],
+      "sourceName": "LSBT* Berlin",
+      "sourceUrl": "https://findahelpline.com/countries/de/topics/gender-sexual-identity",
+      "lastChecked": "2026-08-29"
     }
   ]
 }
