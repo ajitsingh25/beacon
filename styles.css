@@ -36,6 +36,8 @@
   --color-focus: #0f766e;
   --color-focus-ring: rgba(15, 118, 110, 0.22);
 
+  --color-on-brand: #ffffff;
+
   /* --- Typography --- */
   --font-display: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
@@ -129,6 +131,8 @@
 
   --color-focus: #2dd4bf;
   --color-focus-ring: rgba(45, 212, 191, 0.28);
+
+  --color-on-brand: #0b1220;
 
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 4px 14px rgba(0, 0, 0, 0.45);
@@ -272,7 +276,7 @@ body {
   flex-shrink: 0;
 }
 
-.brand-mark svg { width: 18px; height: 18px; color: #ffffff; }
+.brand-mark svg { width: 18px; height: 18px; color: var(--color-on-brand); }
 
 .brand-name {
   font-family: var(--font-display);
@@ -522,7 +526,7 @@ body {
   white-space: nowrap;
 }
 
-.pinned-dismiss:hover { background: var(--color-brand); color: #ffffff; }
+.pinned-dismiss:hover { background: var(--color-brand); color: var(--color-on-brand); }
 
 /* ============================================================
    FILTER CHIPS (languages, categories, NGO categories)
@@ -564,7 +568,7 @@ body {
 .ngo-chip.active {
   background: var(--color-brand);
   border-color: var(--color-brand);
-  color: #ffffff;
+  color: var(--color-on-brand);
 }
 
 .lang-chip-count,
@@ -1076,7 +1080,7 @@ main { flex: 1; padding: var(--space-8) var(--space-4) var(--space-16); }
   transition: all var(--transition-fast);
 }
 
-.contribute-link:hover { background: var(--color-brand); color: #ffffff; border-color: var(--color-brand); }
+.contribute-link:hover { background: var(--color-brand); color: var(--color-on-brand); border-color: var(--color-brand); }
 
 /* ============================================================
    HERO TRUST STRIP
