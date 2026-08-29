@@ -761,6 +761,7 @@ async function initApp() {
     initQuickExit();
     initPinnedDismiss();
     initPrintButton();
+    renderCategoryChips();
     loadStatus();
     updateHashFromPinned();
   } catch (err) {
