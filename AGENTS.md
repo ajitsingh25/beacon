@@ -1,6 +1,6 @@
 # Beacon — AGENTS.md
 
-Verified crisis-helpline directory (`index.html`) plus NGO directory (`ngos.html`). Zero-dependency static site: no build step, `app.js` fetches `data/helplines.json` / `data/ngos.json` at runtime. Deploys to GitHub Pages from `main` via `.github/workflows/deploy.yml`. Clone lives locally at `~/projects/beacon`.
+Verified crisis-helpline directory (`index.html`) plus NGO directory (`ngos.html`). Zero-dependency static site: no build step, `app.js` fetches `data/helplines.json` / `data/ngos.json` at runtime. Deploys to GitHub Pages from `main` via `.github/workflows/deploy.yml`. Clone lives locally at `~/stories/projects/beacon`.
 
 **README.md is authoritative** for the data model, sourcing policy, validation rules, and data schema — read it before touching anything under `data/`.
 
